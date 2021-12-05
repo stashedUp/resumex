@@ -16,7 +16,7 @@ jobs:
           node-version: 16.4.0
 
     
-    # - name: npm progess
+    # - name: npm progess.
     #   run: npm set progress=false && npm config set depth 0 && npm cache clean --force
     
     - name: npm ng-app
