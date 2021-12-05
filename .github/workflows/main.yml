@@ -19,7 +19,7 @@ jobs:
       run: npm install
     
     - name: npm build
-      run: npm run build
+      run: npm set progress=false && npm config set depth 0 && npm cache clean --force
 
     - name: Deploy
       run: npm run deploy
