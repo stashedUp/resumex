@@ -1,14 +1,15 @@
 {
-  "name": "resumex-fe",
+  "name": "resumex",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --build-optimizer",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng deploy --repo=https://github.com/stashedUp/resumex.git --cname=resumex.downloadpdf.org --name=stashedup --email=nathan.h.armstrong@gmail.com"
   },
   "private": true,
   "dependencies": {

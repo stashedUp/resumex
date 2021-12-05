@@ -1,0 +1,27 @@
+name: Pages
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+   
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+          node-version: 16.4.0
+
+    - name: npm dependencies
+      run: npm install
+    
+    - name: npm build
+      run: npm run build
+
+    - name: Deploy
+      run: npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
