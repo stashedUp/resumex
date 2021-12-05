@@ -22,7 +22,7 @@ jobs:
       run: npm set progress=false && npm config set depth 0 && npm cache clean --force
     
     - name: npm ng-app
-      run: npm i && mkdir ./ng-app && cp -R ./node_modules ./ng-app; cp ./* /ng-app; cd /ng-app && $(npm bin)/ng build
+      run: npm i && mkdir ./ng-app && cp -R ./node_modules ./ng-app; cp ./* ./ng-app; cd ./ng-app && $(npm bin)/ng build
 
 
     - name: Deploy
