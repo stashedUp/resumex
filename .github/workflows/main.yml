@@ -20,7 +20,7 @@ jobs:
     #   run: npm set progress=false && npm config set depth 0 && npm cache clean --force
     
     - name: npm ng-app
-      run: rm $(npm bin)/ng; npm i;$(npm bin)/ng build; rm -rf ./docs; mkdir -p ./docs; mv ./dist/* ./docs
+      run: rm $(npm bin)/ng; npm i;$(npm bin)/ng build; rm -rf ./docs; mkdir -p ./docs; echo "resumex.downloadpdf.org" > ./docs/CNAME;mv ./dist/* ./docs; 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
