@@ -46,7 +46,7 @@ export class EduDetailComponent{
         {value: 'Dec', label: 'December'}
     ];
 
-    for (var _i= 2020; _i > 1980; _i-- ){
+    for (var _i= 2026; _i > 1980; _i-- ){
       this.years.push({value:String(_i), label:String(_i)})
     }
   }

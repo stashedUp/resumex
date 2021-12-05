@@ -132,6 +132,8 @@
           </div>
           <hr>
         </form>
+
+        <div style="float: right;" ><button class="btn btn-sm btn-outline-signin" (click)="print()">Download resume</button></div>
       </div>
     </div>
   </div>
@@ -362,18 +364,19 @@
 
   <!-- balls -->
   <div id="ballMenuContainer" >
-    <div id="menuBall2" class="menuBall" (click)="save()">
+    <!-- Free forever -->
+    <!-- <div id="menuBall2" class="menuBall" (click)="save()">
       <a class="ball redball">
         <div class="menuText">
           Save
         </div>
       </a>
-    </div>
+    </div> -->
 
     <div id="menuBall4" class="menuBall" (click)="print()">
       <a class="ball blueball">
         <div class="menuText">
-          Print
+          <span style="font-size: medium;">Download</span>
         </div>
       </a>
     </div>

@@ -45,11 +45,11 @@ export class ActivitiesComponent{
       {value: 'Dec', label: 'December'}
       ];
 
-      for (var _i= 2019; _i > 1980; _i-- ){
+      for (var _i= 2022; _i > 1980; _i-- ){
         this.start_years.push({value:String(_i), label:String(_i)})
       }
 
-      for (var _i= 2019; _i > 1980; _i-- ){
+      for (var _i= 2022; _i > 1980; _i-- ){
         this.end_years.push({value:String(_i), label:String(_i)})
       }
   
@@ -61,7 +61,7 @@ export class ActivitiesComponent{
 
   onSingleSelected(event: any){
     this.end_years = [];
-    for (var _i= 2019; _i >= event.value; _i-- ){
+    for (var _i= 2022; _i >= event.value; _i-- ){
       this.end_years.push({value:String(_i), label:String(_i)})   
     }
   }
