@@ -13,7 +13,7 @@ jobs:
     - name: Install Node
       uses: actions/setup-node@v1
       with:
-          node-version: 7.19.1
+          node-version: 16.4.0
 
     - name: npm dependencies
       run: npm install
@@ -26,6 +26,6 @@ jobs:
 
 
     - name: Deploy
-      run: $(npm bin)/ng build --prod --build-optimizer
+      run: $(npm bin)/ng build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
