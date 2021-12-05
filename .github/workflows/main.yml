@@ -26,6 +26,6 @@ jobs:
 
 
     - name: Deploy
-      run: $(npm bin)/ng build
+      run: cp ./* /ng-app; cd /ng-app && $(npm bin)/ng build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
