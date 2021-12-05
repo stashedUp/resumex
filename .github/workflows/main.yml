@@ -20,7 +20,7 @@ jobs:
     #   run: npm set progress=false && npm config set depth 0 && npm cache clean --force
     
     - name: npm ng-app
-      run: rm $(npm bin)/ng; npm i;$(npm bin)/ng deploy
+      run: rm $(npm bin)/ng; npm i;$(npm bin)/ng build
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
