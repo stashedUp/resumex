@@ -16,7 +16,7 @@ jobs:
           node-version: 16.4.0
 
     - name: npm dependencies
-      run: rm -rf node_modules package-lock.json && npm install
+      run: npm install
     
     - name: npm progess
       run: npm set progress=false && npm config set depth 0 && npm cache clean --force
