@@ -24,10 +24,8 @@ jobs:
     - name: npm ng-app
       run: npm i && mkdir ./ng-app && cp -R ./node_modules ./ng-app
 
-    - name: npm sass
-      run: npm rebuild node-sass --force
 
     - name: Deploy
-      run: npm run deploy
+      run: $(npm bin)/ng build --prod --build-optimizer
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
