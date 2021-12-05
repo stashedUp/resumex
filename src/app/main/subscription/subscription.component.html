@@ -1,0 +1,157 @@
+<app-navbar></app-navbar>
+ <div class="main d-flex justify-content-center">  
+      <div class="col col-md-6">
+        <div class="left">
+       
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" (click)="getSubsInfo(); value=1" [class.active]="info">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" (click)="getSubsInvoice(); value=2" [class.active]="invoiceclass">Invoices</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" role="tab" (click)="getSubsPlan(); value=3" [class.active]="plan">Plan</a>
+            </li>
+          </ul>  
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel">
+              <div [ngSwitch]="value">
+                <div *ngSwitchCase="1" class="notepad">
+                  <h4><span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span> Card Information<span class="float-right"
+                      (click)="refreshCard()" style="cursor:pointer;"><i class="fa fa-refresh" aria-hidden="true"></i></span></h4>
+                  <br>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Name</td>
+                        <td  class="space_cc">:</td>
+                        <td>
+                          <span class="space_cc" *ngIf="!isEditName" from="name">{{name}}</span>
+                      </tr>
+                      <tr>
+                        <td>Last 4 digits</td>
+                        <td class="space_cc">:</td>
+                        <td>
+                          <span class="space_cc" *ngIf="!isEditEmail" from="name">{{last4}}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Expiration month</td>
+                        <td class="space_cc">:</td>
+                        <td>
+                          <span class="space_cc" *ngIf="!isEditEmail" from="name">{{exp_month}} / {{exp_year}}</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Brand</td>
+                        <td class="space_cc">:</td>
+                        <td>
+                          <span class="space_cc" *ngIf="!isEditEmail" from="name">{{brand}}</span>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Account</td>
+                        <td class="space_cc">:</td>
+                        <td class="space_cc">
+                          <button *ngIf="!isEditRmAcct" (click)="updateCard()" type="button" class="btn btn-outline-update btn-sm">Update Credit Card</button>
+                          <button *ngIf="!isEditRmAcct" (click)="isEditRmAcct=true" type="button" class="btn btn-outline-update btn-sm">Delete card and account</button>
+                          <input *ngIf="isEditRmAcct" [(ngModel)]="password" type="password" id="password" placeholder=" Enter password">
+                          <button *ngIf="isEditRmAcct" type="button" class="btn btn-save btn-sm" (click)="deleteAccount()">Delete Everything</button>
+                          <button *ngIf="isEditRmAcct" (click)="isEditRmAcct=false" type="button" class="btn btn-outline-cancel btn-sm">Cancel</button>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div *ngSwitchCase="2" class="notepad">
+                  <h4><span class="icon"><i class="fa fa-archive" aria-hidden="true"></i></span> Invoices</h4>
+
+                  <table class="table table-hover table-fixed">
+                    <thead>
+                      <tr>
+
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Plan</th>
+                        <th>Paid</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let invoice of invoices; let i=index">
+                        <td>{{invoice.date* 1000 |date }}</td>
+                        <td>{{invoice.amount/100 | currency:'USD':true}}</td>
+                        <td>{{invoice.plan}}</td>
+                        <td *ngIf="invoice.paid"><i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </td>
+                        <td *ngIf="!invoice.paid"><i class="fa fa-times-circle" aria-hidden="true"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div *ngSwitchCase="3" class="notepad">
+                  <h4><span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span> Current Plan </h4>
+                  <br>
+                  <table>
+                    <tr>
+                      <td colspan="3">
+                        You are currently enrolled in our:
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Plan</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{plan_name}}</td>
+                    </tr>
+                    <tr>
+                      <td>Member Since</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{start* 1000 |date}}</td>
+                    </tr>
+                    <tr>
+                      <td>Status</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{status}}</td>
+                    </tr>
+                    <tr *ngIf="canceled_at">
+                      <td>Canceled On</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{canceled_at* 1000 |date}}</td>
+                    </tr>
+                    <tr *ngIf="!canceled_at">
+                      <td>Billing Period</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{current_period_start* 1000 |date}} - {{current_period_end* 1000 |date}}</td>
+                    </tr>
+                    <tr *ngIf="canceled_at">
+                      <td>Will End On</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc">{{current_period_end* 1000 |date}}</td>
+                    </tr>
+                    <tr>
+                      <td>Subscription Option</td>
+                      <td class="space_cc">:</td>
+                      <td class="space_cc" *ngIf="!canceled_at">
+                        <button *ngIf="!isEditRmSubs && !isEditUpgrade" (click)="isEditRmSubs=true" type="button" class="btn btn-outline-update btn-sm">Cancel Subscription</button>
+                        <input *ngIf="isEditRmSubs" [(ngModel)]="password" type="password" id="password" placeholder=" Enter password">
+                        <button *ngIf="isEditRmSubs" type="button" class="btn btn-save btn-sm" (click)="cancelSubscription()">Cancel Subscription</button>
+                        <button *ngIf="isEditRmSubs" (click)="isEditRmSubs=false" type="button" class="btn btn-outline-cancel btn-sm">Cancel</button>
+                      </td>
+                      <td class="space_cc" *ngIf="canceled_at">
+                        <button *ngIf="isEditRenewSubs" type="button" class="btn btn-save btn-sm" (click)="restartSubscription()">Renew Subscription</button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </div>

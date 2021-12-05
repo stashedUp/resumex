@@ -1,0 +1,48 @@
+
+  /* login in  */
+  .btn-login {
+    color: #fff;
+    background-color: #686464;
+    border-color: #686464;
+  }
+  
+  .btn-login:hover {
+    color: #fff;
+    background-color: #444141;
+    border-color: #444141;
+  }
+  
+  .btn-login:focus, .btn-login.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(53, 85, 121, 0.50);
+            box-shadow: 0 0 0 2px rgba(53, 85, 121, 0.50);
+  }
+  
+  .btn-login.disabled, .btn-login:disabled {
+    background-color: #757472;
+    border-color: #757472;
+  }
+  
+  .btn-login:active, .btn-login.active,
+  .show > .btn-login.dropdown-toggle {
+    color: #fff;
+    background-color: #776D5A;
+    background-image: none;
+    border-color: #776D5A;
+  }
+  
+  .loginScreen {
+  
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+  }
+  
+  a.forgotPassword{
+    font-weight: bolder;
+    color: #407AA3;
+    cursor: pointer;
+  }
+  
+  a.forgotPassword:hover{
+    color: #143A53;
+  }

@@ -1,0 +1,134 @@
+<div class="modal-header">
+  <h4 class="modal-title">Save and edit my resume</h4>
+  <a *ngIf="!loading" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')" style="cursor:pointer;">
+      <span aria-hidden="true">&times;</span>
+  </a>
+</div>
+
+<div class="modal-body">
+  <h5><b>For $1&nbsp;/month, you'll be able to&nbsp;:</b></h5>
+  <div class="form-group col-sm-12">
+    <table class="table table-sm">
+      <tr>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Save multiple versions</td>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Edit/download anytime</td>
+      </tr>
+
+      <tr>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Additional phrase suggestions</td>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Share revisions with others</td>
+      </tr>
+
+      <tr>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Print unlimited copies</td>
+        <td><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Cancel anytime</td>
+      </tr>
+    </table>
+  </div>
+
+  <form id="payment-form">
+    <h5><b>Create My Account</b></h5>
+    <div class="form-group col-sm-12">
+      <label for="email"><b>Email</b></label><span *ngIf="email_error" class="field_error">{{email_error_msg}}</span> 
+      <input class="form-control" [attr.disabled]="loading?'':null" type="email" name="email" [(ngModel)]="account_email" (ngModelChange)="resetEmailErr()"/>
+    </div>
+
+    <div class="form-group col-sm-12">
+      <label for="password"><b>Password</b></label><span *ngIf="password_error" class="field_error" style="font-size:12px;">{{password_error_msg}}</span>
+      <input class="form-control" [attr.disabled]="loading?'':null" [(ngModel)]="password" name="password" type="password" (ngModelChange)="resetPasswordErr()"/>
+    </div>
+
+    <div class="card">
+      <div class="card-block">
+        <div class="row justify-content-md-center">
+          <div class="card-container"></div>
+          <div style="padding-left:20px;padding-right:20px;">
+            <ngb-alert *ngIf="errCardMsg" type="danger" (close)="errCardMsg = null">{{ message }}</ngb-alert>           
+          </div>
+        </div>
+        
+        <div class="justify-content-md-center">
+          <form card container=".card-container" card-width="280" formatting="true" debug="true">
+            <div class="form-row">
+              <div class="form-group col-sm-12 cardnumber" style="margin-left:3px;">
+                <input class="form-control" [attr.disabled]="loading?'':null" type="text" name="number" [(ngModel)]="cardNumber" (ngModelChange)="resetAlert()" placeholder="Card number"
+                  card-number/>
+              </div>
+
+              <div class="form-group col-sm-12 cardname" style="margin-left:3px;">
+                <input class="form-control" [attr.disabled]="loading?'':null" type="text" name="name" [(ngModel)]="cc_name"(ngModelChange)="resetAlert()" placeholder="Fullname"
+                  card-name/>
+              </div>
+
+              <div class="form-group">
+                <div class="form-inline card_year_cvc">
+                  <div class="form-group col-sm-6">
+                    <input class="form-control" [attr.disabled]="loading?'':null" type="text" [(ngModel)]="expirationDate" (ngModelChange)="resetAlert()" name="expiry" placeholder="MM/YYYY"
+                      card-expiry/>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input class="form-control" [attr.disabled]="loading?'':null" type="text" [(ngModel)]="cvc" (ngModelChange)="resetAlert()" name="cvc" placeholder="CVC"
+                      card-cvc/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="form-inline secure-payment">
+                    <div class="col-12 agree-policy"> 
+                      <span *ngIf="agreeAlert" style="color:red; font-weight:100px;">{{agreeAlertMsg}}</span>
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="agreebox" [(ngModel)]="checkboxAgree" (change)="removeAgreeAlert()">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">I have read and agree with to ResumeX's <a (click)="viewTerms()">Terms of Use</a> and <a (click)="viewPolicy()">Privacy Policy</a>.
+                      </span>
+                      </label>                 
+
+                    </div>
+                    </div>
+
+                    <div class="form-inline secure-payment float-right">
+                    <div class="col-12 secure-stripe-logo">
+                        <img class="main-image" src="../../../assets/icons/powered_by_stripe.png"  alt="Responsive image">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="promocode">
+      <a (click)="promoCollapseBox()" aria-controls="collapseExample">Promo Code</a>
+      <i class="fa fa-question-circle" aria-hidden="true" placement="right" ngbTooltip="If you have a promo code, you can put it here."></i>
+    </div>
+
+    <div id="collapseExample" *ngIf="promoIsCollapsed">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-inline justify-content-md-center">
+            <input class="promo" [attr.disabled]="loading?'':null" [(ngModel)]="promocode" type="text" id="promocode" name="promocode" (ngModelChange)="resetPromoCodeErr()">
+            <button (click)="applyPromoCode()" type="button" class="btn btn-save btn-sm">Apply</button>
+            <button (click)="promoCollapseBox()" type="button" class="btn btn-outline-cancel btn-sm">Cancel</button>
+          </div>
+          <div class="alert-pack justify-content-md-center">
+            <ngb-alert *ngIf="promptAlert" type="{{alertType}}" (click)="promoCollapseBox()">{{ alertMessage }}</ngb-alert>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<div class="modal-footer justify-content-md-center">
+    <div class="justify-content-md-center">
+        <div class="error_above" *ngIf="email_error || password_error || errCardMsg ||agreeAlert">There is an error above</div>
+        <span *ngIf="loading" class="saving_content" >Please wait while we save your content..</span>
+        <button style="display: block; text-align:center;" type="button" [attr.disabled]="loading?'':null" class="btn btn-success" (click)="getToken()">
+          <span *ngIf="loading"><i class="fa fa-spinner fa-spin" aria-hidden="true" ></i>&nbsp;Saving...</span>
+          <span *ngIf="!loading"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Total&nbsp;${{total}}&nbsp;</span>
+        </button>
+  </div>
+</div>

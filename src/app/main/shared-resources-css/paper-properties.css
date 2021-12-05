@@ -1,0 +1,141 @@
+/* -------- START PAPER SECTION -------*/
+@page {
+    margin: 0
+}
+
+.sheet {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    page-break-after: always;
+}
+
+div.ab {
+    margin: 0
+}
+
+div.LETTER .sheet {
+    height: 73em;
+    width: 56em;
+    background-color: #FAF9F2;
+}
+
+/** Padding area **/
+.sheet.padding-10mm {
+    padding-left: 2.500em;
+    padding-right: 2.50em;
+    padding-top: 1.563em;
+    padding-bottom: 2.300em;
+}
+
+.sheet.padding-15mm {
+    padding: 15mm
+}
+
+.sheet.padding-20mm {
+    padding: 20mm
+}
+
+.sheet.padding-25mm {
+    padding: 25mm
+}
+
+/** For screen preview **/
+@media screen {
+    body {
+        background: #e0e0e0
+    }
+    .sheet {
+        background: white;
+        box-shadow: 0 .5mm 2mm rgba(0, 0, 0, .3);
+        margin: 5mm;
+    }
+}
+
+/** Fix for Chrome issue #273306 **/
+@media print {
+    div.LETTER {
+        width: 216mm
+    }
+}
+/* -------- END PAPER SECTION -------*/
+
+
+
+/* page logistics */
+.view-main-screen {
+    font-family: Cambria, Georgia, serif;
+
+}
+
+.name h3 {
+    margin-top: 0;
+    margin-bottom: 3px;
+    text-align: center;
+    font-size: 29px;
+}
+
+.address p {
+    margin-top: 0;
+    /* font-weight: 900; */
+    text-align: center;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.addressbar hr {
+    margin-top: 6px;
+    margin-bottom: 7px;
+}
+
+.title-divider hr {
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+.title p {
+    margin-top: 4px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 16px;  
+    font-weight: bolder;
+}
+
+.title-category p {
+    margin-top: 3px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 13px;
+}
+
+.title-subject p {
+    margin-top: 3px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    line-height: 19px;
+     font-weight: bolder;
+}
+
+.content {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 0.90em;
+    line-height: 17px;
+    margin-bottom: -1px;
+    margin-top: 1px;
+}
+
+ul.content-li {
+    margin-top: 2px;
+    margin-bottom: 8px;
+    
+}
+
+ul.content-li li span{
+    position:relative;
+    left:-0.3em;   
+}

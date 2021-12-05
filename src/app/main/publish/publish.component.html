@@ -1,0 +1,228 @@
+<!-- this is the page part -->
+<div class="container" style="padding-top:50px">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <div class="LETTER">
+        <section class="sheet padding-10mm" #test>
+          <!-- start resume content -->
+          <!-- option = professional -->
+          <div class="view-main-screen" #mainScreen *ngIf="user?.resumetype===2">
+            <div class="name">
+              <h3>{{user?.fullname}}</h3>
+            </div>
+            <div class="address">
+              <p class="text-center">
+                <span *ngIf="user?.email">{{user?.email}}</span>
+                <span *ngIf="user?.phone">&nbsp;|&nbsp;{{user?.phone}}</span>
+                <span *ngIf="user?.address">&nbsp;|&nbsp;{{user?.address}}</span>
+              </p>
+            </div>
+
+            <div class="addressbar">
+              <hr>
+            </div>
+            <!-- MAIN PROFESSIONAL CONTENT -->
+            <!-- professional exp -->
+            <div *ngIf="jobs_show">
+              <div class="title">
+                <p class="text-uppercase">Professional experience</p>
+              </div>
+
+              <div *ngFor="let jobs of user?.jobs; let idx=index">
+                <div class="title-category">
+                  <p>
+                    <span *ngIf="jobs.company">{{jobs.company}}</span><span *ngIf="jobs.company_location">&nbsp;|&nbsp;{{jobs.company_location}} </span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&!jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span>
+                  </p>
+                  <div class="title-subject">
+                    <p><span *ngIf="jobs.job_title">{{jobs.job_title}}</span>
+                      <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let job_description of jobs.job_description; let idx=index" style="white-space: pre-wrap;">{{job_description.brief_description}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+
+            <div *ngIf="edu_show">
+              <div class="title">
+                <p class="text-uppercase">Education</p>
+              </div>
+              <div *ngFor="let edu of user?.education; let idx=index">
+                <div class="title-category">
+                  <p>{{edu.school}}<span *ngIf="edu.school_location">&nbsp;|&nbsp;{{edu.school_location}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="edu.school&&!edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                  </p>
+                </div>
+                <div class="title-subject">
+                  <p>{{edu.degree}}
+                    <span class="float-right" style="margin-right:15px;" *ngIf="edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                  </p>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let edu_description of edu.education_description; let idx=index" style="white-space: pre-wrap;">{{edu_description.brief_description}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+
+            <!-- involvement exp -->
+            <div *ngIf="involvements_show">
+              <div class="title">
+                <p class="text-uppercase">Involvements</p>
+              </div>
+              <div *ngFor="let involvement of user?.involvement; let idx=index">
+                <div class="title-category">
+                  <p>{{involvement.involvement_name}}<span *ngIf="involvement.position_title&&involvement.involvement_name">&nbsp;|&nbsp;{{involvement.position_title}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(involvement.position_title||involvement.involvement_name)&&(involvement.start_month || involvement.start_year || involvement.end_month || involvement.end_year)">{{involvement.start_month}}&nbsp;{{involvement.start_year}}&nbsp;-&nbsp;{{involvement.end_month}}&nbsp;{{involvement.end_year}}</span>
+                  </p>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let involvement_description of involvement.involvement_description; let idx=index" style="white-space: pre-wrap;"><span>{{involvement_description.brief_description}}</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+
+            <!-- interest and awards -->
+            <div *ngIf="personal_show">
+              <div class="title">
+                <p class="text-uppercase">Personal Interest and Achievements</p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let personal of user?.personal; let idx=index" style="white-space: pre-wrap;">{{personal.personal_details}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- option = student -->
+          <div class="view-main-screen" #mainScreen *ngIf="user?.resumetype===1">
+            <div class="name">
+              <h3>{{user?.fullname}}</h3>
+            </div>
+            <div class="address">
+              <p class="text-center">
+                <span *ngIf="user?.email">{{user?.email}}</span>
+                <span *ngIf="user?.phone">&nbsp;|&nbsp;{{user?.phone}}</span>
+                <span *ngIf="user?.address">&nbsp;|&nbsp;{{user?.address}}</span>
+              </p>
+            </div>
+            <div class="addressbar">
+              <hr>
+            </div>
+            <!-- MAIN STUDENT CONTENT -->
+            <!-- education exp -->
+            <div *ngIf="edu_show">
+              <div class="title">
+                <p class="text-uppercase">Education</p>
+              </div>
+              <div *ngFor="let edu of user?.education; let idx=index">
+                <div class="title-category">
+                  <p>{{edu.school}}<span *ngIf="edu.school_location">&nbsp;|&nbsp;{{edu.school_location}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="edu.school&&!edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                  </p>
+                </div>
+                <div class="title-subject">
+                  <p>{{edu.degree}}
+                    <span class="float-right" style="margin-right:15px;" *ngIf="edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                  </p>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let edu_description of edu.education_description; let idx=index" style="white-space: pre-wrap;">{{edu_description.brief_description}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+            <!-- involvement exp -->
+            <div *ngIf="involvements_show">
+              <div class="title">
+                <p class="text-uppercase">Involvements</p>
+              </div>
+              <div *ngFor="let involvement of user?.involvement; let idx=index">
+                <div class="title-category">
+                  <p>{{involvement.involvement_name}}<span *ngIf="involvement.position_title&&involvement.involvement_name">&nbsp;|&nbsp;{{involvement.position_title}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(involvement.position_title||involvement.involvement_name)&&(involvement.start_month || involvement.start_year || involvement.end_month || involvement.end_year)">{{involvement.start_month}}&nbsp;{{involvement.start_year}}&nbsp;-&nbsp;{{involvement.end_month}}&nbsp;{{involvement.end_year}}</span>
+                  </p>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let involvement_description of involvement.involvement_description; let idx=index" style="white-space: pre-wrap;">{{involvement_description.brief_description}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+            <!-- professional exp -->
+            <div *ngIf="jobs_show">
+              <div class="title">
+                <p class="text-uppercase">Professional experience</p>
+              </div>
+              <!-- <span class="float-right" style="margin-right:15px;" *ngIf="jobs.company&&jobs.job_start_date"> {{jobs.job_start_date}} </span><span *ngIf="jobs.company&&jobs.job_start_date">&nbsp;-&nbsp;{{jobs.job_start_date}}</span>< -->
+              <div *ngFor="let jobs of user?.jobs; let idx=index">
+                <div class="title-category">
+                  <p>
+                    <span *ngIf="jobs.company">{{jobs.company}}</span><span *ngIf="jobs.company_location">&nbsp;|&nbsp;{{jobs.company_location}} </span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&!jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span>
+                  </p>
+                  <div class="title-subject">
+                    <p><span *ngIf="jobs.job_title">{{jobs.job_title}}</span>
+                      <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="content">
+                  <ul class="content-li">
+                    <li *ngFor="let job_description of jobs.job_description; let idx=index" style="white-space: pre-wrap;">{{job_description.brief_description}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="title-divider">
+                <hr/>
+              </div>
+            </div>
+            <!-- interest and awards -->
+            <div *ngIf="personal_show">
+              <div class="title">
+                <p class="text-uppercase">Personal Interest and Achievements</p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let personal of user?.personal; let idx=index" style="white-space: pre-wrap;">{{personal.personal_details}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

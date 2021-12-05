@@ -1,0 +1,202 @@
+/* remove this if not in use*/
+.payments {
+	font-size: 30px;	
+}
+
+
+.card-block {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.btn {
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+.table td, .table th{
+  border-top:none;
+}
+
+.table-sm td, .table-sm th {
+  padding: .2rem;
+}
+
+.modal-header {
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color: #E2E2E2;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -moz-border-radius-topright: 4px;
+   border-top-left-radius: 4px;
+   border-top-right-radius: 4px;
+}
+ 
+
+.cardnumber {
+  padding-left:30px;
+  padding-right:35px;
+}
+
+.cardname {
+  padding-left:30px;
+  padding-right:35px;
+}
+
+.card_year_cvc{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.promocode {
+  padding-top: 8px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #0180A7;
+}
+
+.promocode a:hover{
+  color: #002833;
+}
+
+/*save*/
+.btn-save {
+  color: #fff;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+  width: 60px;
+  padding: 1px 5px 1px 5px;
+  margin-left:5px; 
+}
+
+.btn-save:hover {
+  color: #fff;
+  background-color: #36701A;
+  border-color: #417528;
+  cursor: pointer;
+}
+
+.btn-save:focus, .btn-save.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(92, 184, 92, 0.5);
+          box-shadow: 0 0 0 2px rgba(92, 184, 92, 0.5);
+}
+
+.btn-save.disabled, .btn-save:disabled {
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.btn-save:active, .btn-save.active,
+.show > .btn-save.dropdown-toggle {
+  color: #fff;
+  background-color: #7FAF69;
+  background-image: none;
+  border-color: #7FAF69;
+}
+
+/*cancel*/
+.btn-outline-cancel {
+  color: #7FAF69;
+  background-image: none;
+  background-color: transparent;
+  border-color: #7FAF69;
+  width: 60px;
+  padding: 1px 5px 1px 5px;
+  margin-left:3px; 
+}
+
+.btn-outline-cancel:hover {
+  color: #303535;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.btn-outline-cancel:focus, .btn-outline-cancel.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-cancel.disabled, .btn-outline-cancel:disabled {
+  color: #7FAF69;
+  background-color: transparent;
+}
+
+.btn-outline-cancel:active, .btn-outline-cancel.active,
+.show > .btn-outline-cancel.dropdown-toggle {
+  color: #303535;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+input.promo{
+  border-radius: 3px;
+  padding-top: 0px;
+  border: 1px solid rgba(199, 199, 199, 0.91);
+}
+
+.alert-pack{
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.card-body {
+    padding-bottom: 0px !important;
+}
+
+.field_error{
+    color: #FC0404;
+    padding-left: 20px;
+    font-weight: 700;    
+}
+
+.secure-payment{
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.agree-policy {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.agree-policy a{
+    color: #0180A7;
+}
+
+.agree-policy a:hover{
+  color: rgb(4, 79, 102);
+}
+
+.secure-stripe-logo{
+  margin-right: 0px;
+}
+
+.custom-control-description{
+  padding-left: 2px;
+}
+
+.error_above {
+  color:red; 
+  font-size:12px; 
+  text-align:center; 
+  padding-bottom:5px;
+}
+
+.saving_content {
+  text-align:center; 
+  font-size:14px; 
+  font-weight: 400;
+  padding-bottom:5px;
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}

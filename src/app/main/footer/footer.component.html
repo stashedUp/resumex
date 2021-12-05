@@ -1,0 +1,50 @@
+
+<div class="bg-faded" *ngIf="!currentUser">
+    <div class="container" >
+
+        <div class="row">
+
+            <div class="col-6 col-md-3 col-md-offset-4">
+                <ul class="footer-list">
+                    <li class="footer-title">ResumeX</li>
+                    <li (click)="viewPricing()">Pricing</li>
+                    <li (click)="contactUs()">Contact Us</li> 
+                    <!-- <li>Resume Samples</li> -->
+                    <!-- <li>About Us</li> -->
+                </ul>
+            </div>
+            <div class="col-6 col-md-3">
+                <ul class="footer-list">
+                    <li class="footer-title">Terms</li>
+                    <li (click)="viewTerms()">Conditions</li>
+                    <li (click)="viewPolicy()">Privacy Policy</li>
+                          
+                </ul>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <ul class="footer-list">
+                    <li class="footer-title">Resources</li>
+                    <li (click)="viewToAvoid()">What To Avoid</li>
+                    <li (click)="viewTips()">Tips from Recruiters</li>
+                </ul>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <ul class="footer-list">
+                    <li class="footer-title">Who's using us</li>
+                    <li (click)="viewListUsers()">List of schools</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 love-resumex">
+                &copy; ResumeX powered by KeplersBox 2018
+            </div>
+        </div>
+    </div>
+</div>
+
+ 

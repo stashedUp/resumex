@@ -1,0 +1,214 @@
+.main {
+    margin-top: 130px;
+    background-color: rgba(104, 100, 100, 0.39);
+    min-height: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.left {
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #303535;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    color: #EBEBEB;
+    font-weight: 400;
+    border:1px #464a4c solid;
+    position: relative;
+    box-shadow: 10px 10px 5px #888888;
+  
+}
+
+input[type=text]{
+  border-radius:3px;
+  border: 1px solid #A7A7A7;
+}
+
+input[type=email]{
+  border-radius:3px;
+  border: 1px solid #A7A7A7;
+}
+
+input[type=password]{
+  border-radius:3px;
+  border: 1px solid #A7A7A7;
+}
+
+/*update*/
+.btn-outline-update {
+  color: #929E9E;
+  background-image: none;
+  background-color: transparent;
+  border-color: #929E9E;
+}
+
+.btn-outline-update:hover {
+  color: #fff;
+  background-color: #929E9E;
+  border-color: #929E9E;
+  cursor: pointer;
+}
+
+.btn-outline-update:focus, .btn-outline-update.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-update.disabled, .btn-outline-update:disabled {
+  color: #929E9E;
+  background-color: transparent;
+}
+
+.btn-outline-update:active, .btn-outline-update.active,
+.show > .btn-outline-update.dropdown-toggle {
+  color: #fff;
+  background-color: #929E9E;
+  border-color: #929E9E;
+}
+
+/*save*/
+.btn-save {
+  color: #fff;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.btn-save:hover {
+  color: #fff;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+  cursor: pointer;
+}
+
+.btn-save:focus, .btn-save.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(92, 184, 92, 0.5);
+          box-shadow: 0 0 0 2px rgba(92, 184, 92, 0.5);
+}
+
+.btn-save.disabled, .btn-save:disabled {
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.btn-save:active, .btn-save.active,
+.show > .btn-save.dropdown-toggle {
+  color: #fff;
+  background-color: #7FAF69;
+  background-image: none;
+  border-color: #7FAF69;
+}
+
+/*cancel*/
+.btn-outline-cancel {
+  color: #7FAF69;
+  background-image: none;
+  background-color: transparent;
+  border-color: #7FAF69;
+}
+
+.btn-outline-cancel:hover {
+  color: #303535;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.btn-outline-cancel:focus, .btn-outline-cancel.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-cancel.disabled, .btn-outline-cancel:disabled {
+  color: #7FAF69;
+  background-color: transparent;
+}
+
+.btn-outline-cancel:active, .btn-outline-cancel.active,
+.show > .btn-outline-cancel.dropdown-toggle {
+  color: #303535;
+  background-color: #7FAF69;
+  border-color: #7FAF69;
+}
+
+.space_td{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.space_spn{
+    padding-right: 10px;
+}
+
+.space_cc{
+    padding-left: 10px;
+}
+
+
+.nav-tabs {
+  border-bottom: 1px solid #464a4c;
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: -1px;
+}
+
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+  border-color: #929E9E #929E9E #929E9E;
+}
+
+.nav-tabs .nav-link.disabled {
+  color: #464a4c;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #464a4c;
+  background-color: #929E9E;
+  border-color: #464a4c #464a4c #464a4c;
+}
+
+.nav-tabs .dropdown-menu {
+  margin-top: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.notepad {
+    padding: 25px 25px 20px 25px;
+    background-color: #fff;
+    height: 400px;
+    color: #787d8c;
+    border-radius: 0px 7px 7px 7px;
+
+}
+
+.icon {
+    color:#8f96ad;
+}
+
+.table-fixed tbody {
+    display:block;
+    height:250px;
+    overflow:auto;
+}
+.table-fixed thead, .table-fixed tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
+.table-fixed thead {
+    width: calc( 100% - 1em )
+}
+

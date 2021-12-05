@@ -1,0 +1,10 @@
+<app-activity-description *ngFor="let description of involvement.controls; let i=index" 
+[index]="i" [description]="description"
+ (removed)="involvement.removeAt($event)"
+ (notifyactivitydesc)='onNotify($event)'
+>
+</app-activity-description>
+
+<h6><span *ngIf="exceed" class="exceed_warning">Careful, your resume might exceed a page!</span></h6>
+
+<button type="button" class="btn btn-link" (click)="addItemy()">Add more bullet</button>

@@ -1,0 +1,3 @@
+<app-edu-detail *ngFor="let edu of itemsFormArray.controls; let i=index" [index]="i" [edu]="edu" (removed)="itemsFormArray.removeAt($event)">
+</app-edu-detail>
+<button type="button" class="btn btn-outline-success btn-sm float-right" (click)="addItem()">Add another school</button>

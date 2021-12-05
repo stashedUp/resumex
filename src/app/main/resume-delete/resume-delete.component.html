@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">Delete this resume</h4>
+      <span class="close" (click)="activeModal.dismiss('Cross click')">
+        <i class="fa fa-times" aria-hidden="true"></i></span>
+</div>
+<div class="modal-body">
+   <h6>Are you sure you want to delete this resume?</h6>
+   <h6>You will not be able to retrieve it once deleted.</h6>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Cancel</button>
+  <button type="button" class="btn btn-secondary btn-success float-right" (click)="deleteResume()">Confirm delete</button>
+</div>

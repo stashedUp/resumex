@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title">Share this resume</h5>
+  <a class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')" style="cursor:pointer;">
+            <span aria-hidden="true">&times;</span>
+          </a>
+
+</div>
+
+<div class="modal-body">
+  <div class="loginScreen">
+    <div class="share-content">
+      <h6>Share this link with your advisor, mentor or friend.</h6>
+      <div class="input-group share-link">
+        <input type="text" class="form-control" [(ngModel)]="link" readonly>
+        <span class="input-group-addon" placement="top" ngbTooltip="Copy">
+                <i class="fa fa-clipboard" aria-hidden="true" ngxClipboard [cbContent]="link" (cbOnSuccess)="isCopied = true"></i>
+                </span>
+      </div>
+
+      <div class="form-group share-email">
+        <label for="email"><b>Enter the person's email address below:</b></label>
+        <input class="form-control" type="email" [(ngModel)]="to_email" />
+      </div>
+      <ngb-alert *ngIf="shareAlert" type={{alertType}} (close)="shareAlert = null">{{alertMessage}}</ngb-alert>
+      <hr>
+      <div class="form-group share-button">
+        <button class="btn btn-outline-cancel float-left" (click)="activeModal.dismiss('Cross click')">
+                Cancel
+           </button>
+        <button class="btn btn-sendemail float-right" (click)="shareLinkEmail()">
+                <span *ngIf="loading"><i class="fa fa-spinner fa-spin" aria-hidden="true" ></i>&nbsp;Sending</span>
+                <span *ngIf="!loading"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Send&nbsp;email&nbsp;</span>
+           </button>
+        <button class="btn btn-openlink float-right" (click)="openLink()">
+            Open Link
+       </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

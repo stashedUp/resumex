@@ -1,0 +1,59 @@
+<div>
+    <h5 class="card-title">Job History
+        <button type="button" class="close float-right" aria-label="Close" (click)="removed.emit(index)">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </h5>
+    <div>
+        <div [formGroup]="job">
+            <div class="form-group">
+                <label [attr.for]="'company'+index"><b>I had a job at</b></label>
+                <input type="text" class="form-control" [attr.id]="'company'+index" formControlName="company" (ngModelChange)="calculateLength($event);" placeholder="Target Store">
+            </div>
+            <div class="form-group">
+                <label [attr.for]="'company_location'+index"><b>This job is located in</b></label>
+                <input type="text" class="form-control" [attr.id]="'company_location'+index" formControlName="company_location" (ngModelChange)="calculateLength($event);" placeholder="Ex- Portland, Oregon">
+            </div>
+            <div class="form-group">
+                <label [attr.for]="'job_title'+index"><b>My job title was</b></label>
+                <input type="text" class="form-control" [attr.id]="'job_title'+index" formControlName="job_title" (ngModelChange)="calculateLength($event);" placeholder="Ex- Sales Floor Team Member">
+            </div>
+            <div class="form-group">
+                <label [attr.for]="'degree'+index"><b>I started this job in</b></label>
+                <div class="form-inline">
+                    <div class="col-6">
+                        <ng-select [options]="months" [multiple]="false" [placeholder]="monthPlaceHolder" formControlName="start_month" (ngModelChange)="calculateLength($event);">
+                        </ng-select>
+                    </div>
+                    <div class="col-6">
+                        <ng-select [options]="start_years" [multiple]="false" [placeholder]="yearPlaceHolder" formControlName="start_year" (ngModelChange)="calculateLength($event);" (selected)="onSingleSelected($event)">
+                        </ng-select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label [attr.for]="'degree'+index"><b>And it ended in</b> &nbsp;&nbsp;&nbsp;&nbsp;<input #savePresentCheckBox
+                    id="savePresentCheckBox"  type="checkbox" (change)="onSaveCheckBoxChanged(savePresentCheckBox.checked)" formControlName="present"/> I'm still working here </label>
+                
+                <div class="form-inline">
+                       
+                    <div class="col-6"   *ngIf="!job.get('present').value">
+                        <ng-select [options]="months"  [multiple]="false" [placeholder]="monthPlaceHolder" formControlName="end_month" (ngModelChange)="calculateLength($event);">
+                        </ng-select>
+                    </div>
+                    <div class="col-6" *ngIf="!job.get('present').value">
+                        <ng-select [options]="end_years"  [multiple]="false" [placeholder]="yearPlaceHolder" formControlName="end_year" (ngModelChange)="calculateLength($event);">
+                        </ng-select>
+                    </div>
+                    <div class="col-6" *ngIf="job.get('present').value">
+                        <span style="font-weight:400">Present</span>
+                    </div>
+                </div>
+            </div>
+            <app-job-detail formArrayName="job_description" [job]=" job.get('job_description')">
+            </app-job-detail>
+        </div>
+
+    </div>
+</div>
+<hr/>

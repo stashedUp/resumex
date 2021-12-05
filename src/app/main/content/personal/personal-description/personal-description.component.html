@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <button type="button" class="close float-right" aria-label="Close" (click)="removed.emit(index)">
+                        <span aria-hidden="true">&times;</span>
+             </button>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group" [formGroup]="personal">
+
+            <div class="form-inline">
+                    <label class="float-left">
+                            <b>My some of my skills and interests are
+                                    <i class="fa fa-question-circle" aria-hidden="true" placement="top" ngbTooltip="Include your hobbies and interests if they relate to the position. For example, if you are applying to work at a sporting goods store, you can include your passion for basketball. Foreign languages with which you are familiar; state both the language and your level of familiarity (beginning, intermediate, proficient, fluent).List any other skills you have that relate to the job but are not included elsewhere in your resume."></i>                    
+                            </b>
+                    </label>
+            </div>
+
+            <div class="form-inline d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" placement="top" [ngbPopover]="popContent" #p="ngbPopover"
+                            (document:click)="p.close()" (click)="$event.stopPropagation()">
+                            What to write?
+                    </button>
+            </div>
+
+            <textarea class="form-control" [attr.id]="'personal_details'+index" formControlName="personal_details" (ngModelChange)="calculateLength($event);"></textarea>
+        </div>
+    </div>
+</div>
+
+<ng-template #popContent class="content-holder">
+    <table class="table table-hover table-fixed">
+        <thead>
+            <tr>
+                <th>Click on phrase to add <i class="fa fa-times float-right" style="margin-top:5px; cursor:pointer;" aria-hidden="true"
+                        (click)="p.close()"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr (click)="addToBox(statement)" style="cursor:pointer" *ngFor="let statement of help; let i=index">
+                <td>{{statement}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

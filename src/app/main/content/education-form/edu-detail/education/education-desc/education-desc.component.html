@@ -1,0 +1,45 @@
+<div class="form-inline">
+  
+    <label class="float-left">
+          <b>My accomplishments were
+              <i class="fa fa-question-circle" aria-hidden="true" placement="top" ngbTooltip="Include your major/minor fields, as well as your GPA and any honors, publications, and projects"></i>
+            </b>
+    </label>
+    <button type="button" class="close ml-auto" aria-label="Close" (click)="removed.emit(index)">
+            <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="form-inline d-flex justify-content-center">
+    <button type="button" class="btn btn-outline-secondary btn-sm float-right" placement="top" [ngbPopover]="popContent" #p="ngbPopover"
+              (click)="$event.stopPropagation()">
+            What to write?
+    </button>
+</div>
+
+
+<div class="form-group" [formGroup]="description">
+  <textarea class="form-control" [attr.id]="'brief_description'+index" formControlName="brief_description" (ngModelChange)="calculateLength($event);"
+    placeholder=""></textarea>
+</div>
+
+
+<ng-template #popContent class="content-holder">
+  <table class="table table-hover table-fixed">
+    <thead>
+        <tr>
+            <th>
+                   <select class="form-control" id="jobs_help" (change)="onSelect($event.target.value)">
+                            <option *ngFor="let category of categories" [value]="category" > {{category}} </option>
+                    </select>
+                    <i class="fa fa-times float-right" style="margin-top:5px; cursor:pointer;" aria-hidden="true" (click)="p.close()"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr (click)="addToBox(statement);p.close()" style="cursor:pointer" *ngFor="let statement of help; let i=index">
+        <td>{{statement}}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

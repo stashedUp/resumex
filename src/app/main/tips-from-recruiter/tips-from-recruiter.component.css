@@ -1,0 +1,35 @@
+.container {
+    margin-top: 7em;
+}
+  
+.tips-from-recruiter {
+    margin: auto;
+    margin-bottom: 100px;
+    padding: 3em;
+    border: 1px solid rgba(87, 87, 87, 0.82); 
+    background-color: #eee;
+}
+
+h1 {
+    color: rgba(51, 50, 50, 0.87);
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 18pt;
+    color: rgba(66, 66, 66, 0.82);
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h4 {
+    color: rgba(51, 50, 50, 0.87);
+    font-size: 16pt; 
+    text-align: left;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+p li {
+    font-family: 'Source Sans Pro', sans-serif;
+}

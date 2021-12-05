@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h4 class="modal-title">Update Credit Card</h4>
+  <a class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </a>
+</div>
+<div class="modal-body">
+ 
+
+    <div class="card">
+        <div class="card-block">
+            <div class="row justify-content-md-center">
+              <div class="card-container"></div>
+              <div style="padding-left:20px;padding-right:20px;">
+                  <ngb-alert *ngIf="errCardMsg" type="danger" (close)="errCardMsg = null">{{ message }}</ngb-alert>           
+                </div>
+            </div>
+            
+            <div class="justify-content-md-center">
+                <form card container=".card-container" card-width="280" formatting="false" debug="true">
+                  <div class="form-row">
+                    <div class="form-group col-sm-12 cardnumber" style="margin-left:3px;">
+                      <input class="form-control" [attr.disabled]="loading?'':null" type="text" name="number" [(ngModel)]="cardNumber" (ngModelChange)="resetAlert()" placeholder="Card number"
+                        card-number/>
+                    </div>
+      
+                    <div class="form-group col-sm-12 cardname" style="margin-left:3px;">
+                      <input class="form-control" [attr.disabled]="loading?'':null" type="text" name="name" [(ngModel)]="cc_name"(ngModelChange)="resetAlert()" placeholder="Fullname"
+                        card-name/>
+                    </div>
+      
+                    <div class="form-group">
+                      <div class="form-inline card_year_cvc">
+                        <div class="form-group col-sm-6">
+                          <input class="form-control" [attr.disabled]="loading?'':null" type="text" [(ngModel)]="expirationDate" (ngModelChange)="resetAlert()" name="expiry" placeholder="MM/YYYY"
+                            card-expiry/>
+                        </div>
+                        <div class="form-group col-sm-6">
+                          <input class="form-control" [attr.disabled]="loading?'':null" type="text" [(ngModel)]="cvc" (ngModelChange)="resetAlert()" name="cvc" placeholder="CVC"
+                            card-cvc/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          </div>
+    </div>
+  
+
+</div>
+<div class="modal-footer">
+  <button type="button" [attr.disabled]="loading?'':null" class="btn btn-secondary" (click)="activeModal.close('Close click')">Cancel</button>
+  <button type="button" [attr.disabled]="loading?'':null" class="btn btn-secondary btn-success" (click)="getToken()"><span *ngIf="loading"><i class="fa fa-spinner fa-spin" aria-hidden="true" ></i>&nbsp;Saving</span><span *ngIf="!loading"><i class="fa fa-lock" aria-hidden="true"></i>&nbsp;Update Card</span></button>  
+</div>

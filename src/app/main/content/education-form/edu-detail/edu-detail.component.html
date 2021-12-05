@@ -1,0 +1,40 @@
+<div>
+  <h5 class="panel-title">Education History
+    <button type="button" class="close float-right" aria-label="Close" (click)="removed.emit(index)">
+            <span aria-hidden="true">&times;</span>
+      </button>
+  </h5>
+  <div>
+    <div [formGroup]="edu">
+      <div class="form-group">
+        <label [attr.for]="'school'+index"><b>I attended school at</b></label>
+        <input type="text" class="form-control" [attr.id]="'school'+index" formControlName="school" (ngModelChange)="calculateLength($event);" placeholder="Ex: Drake University">
+      </div>
+      <div class="form-group">
+        <label [attr.for]="'school_location'+index"><b>My school is located in</b></label>
+        <input type="text" class="form-control" [attr.id]="'school_location'+index" formControlName="school_location" (ngModelChange)="calculateLength($event);" placeholder="Ex- Des Moines, IA">
+      </div>
+      <div class="form-group">
+        <label [attr.for]="'degree'+index"><b>I got one or more awesome degree(s) in</b></label>
+        <input type="text" class="form-control" [attr.id]="'degree'+index" formControlName="degree" (ngModelChange)="calculateLength($event);" placeholder="Ex- Computer Science">
+      </div>
+      <div class="form-group">
+        <label [attr.for]="'degree'+index"><b>I graduate in</b></label>
+        <div class="form-inline">
+          <div class="col-6">
+            <ng-select [options]="months" [multiple]="false" [placeholder]="monthPlaceHolder" formControlName="grad_month" (ngModelChange)="calculateLength($event);"> 
+            </ng-select>
+          </div>
+          <div class="col-6">
+            <ng-select [options]="years" [multiple]="false" [placeholder]="yearPlaceHolder" formControlName="grad_year" (ngModelChange)="calculateLength($event);">
+            </ng-select>
+          </div>
+        </div>
+      </div>
+      <app-education formArrayName="education_description" [edu]="edu.get('education_description')">
+      </app-education>
+    </div>
+
+  </div>
+</div>
+<hr/>

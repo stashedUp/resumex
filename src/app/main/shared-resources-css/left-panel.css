@@ -1,0 +1,118 @@
+.main {
+    color: white;
+    padding-left: 25px;
+    padding-right: 15px;
+    padding-top: 80px;
+}
+
+.main-tabs {
+    
+    color: #303535;
+}
+
+.main-tabs b {
+    color: #1D2838;
+    text-decoration: none;
+}
+
+.leftscrollbar {
+    /* height:190mm; */
+    height:1490px;
+    overflow:auto;
+    /* overflow-y:hidden; */
+    direction: rtl;
+    margin-bottom: 50px;
+}
+.leftscrollbar > div {
+    direction: ltr;
+}
+
+.leftscrollbar::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* student type btn */
+.btn-student-type {
+    color: #D7D9D7;
+    background-image: none;
+    background-color: transparent;
+    border-color: #364652;
+  }
+  
+  .btn-student-type:hover {
+    color: #fff;
+    background-color: #4e5c66;
+    border-color: #4e5c66;
+  }
+  
+  .btn-student-type:focus, .btn-student-type.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+            box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+  }
+  
+  .btn-student-type.disabled, .btn-student-type:disabled {
+    color: #364652;
+    background-color: transparent;
+  }
+  
+  .btn-student-type:active, .btn-student-type.active,
+  .show > .btn-student-type.dropdown-toggle {
+    color: #fff;
+    background-color: #364652;
+    border-color: #364652;
+  }
+
+  /* professional type btn */
+  .btn-professional-type {
+    color: #D7D9D7;
+    background-image: none;
+    background-color: transparent;
+    border-color: #364652;
+  }
+  
+  .btn-professional-type:hover {
+    color: #fff;
+    background-color: #4e5c66;
+    border-color: #4e5c66;
+  }
+  
+  .btn-professional-type:focus, .btn-professional-type.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+            box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+  }
+  
+  .btn-professional-type.disabled, .btn-studeprofessionalnt-type:disabled {
+    color: #364652;
+    background-color: transparent;
+  }
+  
+  .btn-professional-type:active, .btn-professional-type.active,
+  .show > .btn-professional-type.dropdown-toggle {
+    color: #fff;
+    background-color: #364652;
+    border-color: #364652;
+  }
+
+  .type-question{
+    padding-bottom: 5px;
+  }
+ 
+  .type-answer{
+    padding-bottom: 5px;
+  }
+
+#left {
+    float: left;
+    overflow-y: scroll;  
+}
+
+#right {
+    float: left;
+    overflow-y: scroll;
+    height:1500px;
+    background-color: rgb(201, 201, 201);   
+}
+
+#left::-webkit-scrollbar { 
+    display: none; 
+}

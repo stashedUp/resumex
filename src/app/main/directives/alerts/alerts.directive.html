@@ -1,0 +1,19 @@
+<!-- <div class="col-md-4" id="alertBox" *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+    {{message.text}}
+</div> -->
+<!-- <div class="col-sm-8 col-sm-offset-2"> -->
+<div class="alert-container">
+
+    <div id="alertBox" *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissable">
+        <a class="close" (click)="removeAlert(alert)">&times;</a> {{alert.message}}
+    </div>
+</div>
+<!-- </div> -->
+
+
+<!-- <div id="alertBox" *ngFor="let alert of alerts" class="notify errorbox {{ cssClass(alert) }} alert-dismissable">
+        <a class="close" (click)="removeAlert(alert)">&times;</a>
+    <h1>Warning!</h1> <span class="alerticon"><img src="../../../../assets/icons/warning_v2.png" alt="error" /></span>
+    {{alert.message}}
+    <p>If you continue typing, you might exceed one page.</p>
+</div>  -->

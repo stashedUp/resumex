@@ -1,0 +1,161 @@
+.row {
+    display: center; 
+}
+
+.pricing {
+    margin-top: 7em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create three columns of equal width */
+.columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;  
+}
+
+/* Style the list */
+.price {
+    list-style-type: none;
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+}
+
+/* Add shadows on hover */
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+/* Pricing header */
+.price .header {
+    background-color: #303535;
+    color: #FFFFFF;
+    font-size: 25px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 13px;
+    text-align: center;
+}
+
+/* List items */
+.price li {
+    background-color: #eee;
+    border-top: 1px solid #eee;
+    /* padding: 15px; */
+    /* text-align:  center; */
+}
+
+.price .white{
+    background-color: grey;
+    color: white; 
+    font-size: 30px;
+    text-align: center;
+    padding: 13px;
+}
+
+/* Grey list item */
+.price .bottom{
+    background-color: #303535;
+    font-size: 20px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    padding: 15px;
+}
+
+li.body {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 55px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.51);
+}
+
+li.body:hover {
+    background: rgba(232, 233, 233, 0.9)
+}
+
+/* Change the width of the three columns to 100% 
+(to stack horizontally on small screens) */
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}
+
+
+/* sign in alternate */
+.btn-create {
+    color: #fff;
+    background-color: #686464;
+    border-color: #686464;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .btn-create:hover {
+    color: #fff;
+    background-color: #A5A4A4;
+    border-color: #AAAAAA;
+  }
+  
+  .btn-create:focus, .btn-create.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(184, 181, 92, 0.50);
+            box-shadow: 0 0 0 2px rgba(169, 184, 92, 0.50);
+  }
+  
+  .btn-create.disabled, .btn-create:disabled {
+    background-color: #776D5A;
+    border-color: #776D5A;
+  }
+  
+  .btn-create:active, .btn-create.active,
+  .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #69593B;
+    background-image: none;
+    border-color: #69593B;
+  }
+
+  /* sign up alternate */
+.btn-signup {
+    color: #fff;
+    background-color: #E31B2B;
+    border-color: #E31B2B;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .btn-signup:hover {
+    color: #fff;
+    background-color: #97081F;
+    border-color: #97081F;
+  }
+  
+  .btn-signup:focus, .btn-signup.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(184, 181, 92, 0.50);
+            box-shadow: 0 0 0 2px rgba(169, 184, 92, 0.50);
+  }
+  
+  .btn-signup.disabled, .btn-signup:disabled {
+    background-color: #776D5A;
+    border-color: #776D5A;
+  }
+  
+  .btn-signup:active, .btn-signup.active,
+  .show > .btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #69593B;
+    background-image: none;
+    border-color: #69593B;
+  }

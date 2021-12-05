@@ -1,0 +1,7 @@
+<app-personal-description *ngFor="let personal of itemsFormArray.controls; let i=index" [index]="i" [personal]="personal"
+    (removed)="itemsFormArray.removeAt($event)" (notify)='onNotify($event)'>
+</app-personal-description>
+
+<h6><span *ngIf="exceed" class="exceed_warning">Careful, your resume might exceed a page!</span></h6>
+
+<button type="button" class="btn btn-outline-info btn-sm float-right" (click)="addItem()">I have another skill or interest</button>

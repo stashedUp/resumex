@@ -1,0 +1,380 @@
+
+<app-navbar></app-navbar>
+
+<div class="row">
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" id="left" style="background:#757472; height:1500px;">
+    <div class="leftscrollbar">
+      <div class="main">
+        <form [formGroup]="myForm">
+          <div class="d-flex justify-content-center type-question">
+            What best describes you?
+          </div>
+
+          <div class="d-flex justify-content-center type-answer">
+            <div class="btn-group" ngbRadioGroup name="radioBasic" formControlName="resumetype">
+              <label ngbButtonLabel class="btn btn-student-type btn-sm" (click)="resumeType(1)">
+                  <input ngbButton type="radio"  checked [value]=1 (click)="resumeType(1)">Student or Recent Graduate  
+              </label>
+              <label ngbButtonLabel class="btn btn-professional-type btn-sm active" (click)="resumeType(2)">
+                  <input ngbButton type="radio"  [value]=2 (click)="resumeType(2)">Working Professional
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fullname"><b><i class="fa fa-user-circle" aria-hidden="true"></i>
+              &nbsp;&nbsp;My name is</b></label>
+            <input class="form-control" formControlName="fullname" (ngModelChange)="calculateLength($event);" placeholder="Firstname Lastname" />
+          </div>
+
+          <div class="form-group">
+            <label for="email"><b><i class="fa fa-envelope" aria-hidden="true"></i>
+              &nbsp;&nbsp;Shoot me an email @</b></label>
+            <input class="form-control" type="email" formControlName="email"  (ngModelChange)="calculateLength($event);" placeholder="example@example.com"/>
+          </div>
+
+          <div class="form-group">
+            <label for="phone"><b><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;Call or text me at</b></label>
+            <input class="form-control" formControlName="phone"  (ngModelChange)="calculateLength($event);" placeholder="(555)-555-555"/>
+          </div>
+
+          <div class="form-group">
+            <label for="address"><b><i class="fa fa-map-marker" aria-hidden="true"></i>
+              &nbsp;&nbsp;I’m located at</b></label>
+            <input class="form-control" formControlName="address"  (ngModelChange)="calculateLength($event);" placeholder="202 Street Name, City, State, Zipcode"/>
+          </div>
+
+          <div class="main-tabs">
+            <!-- resume content -->
+            <div *ngIf="myForm.value['resumetype'] === 2">
+              <!-- type == professional -->
+              <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;&nbsp;Add Job</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-jobs formArrayName="jobs" [itemsFormArray]="myForm.get('jobs')">
+                    </app-jobs>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Add Education</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-education-form formArrayName="education" [itemsFormArray]="myForm.get('education')">
+                    </app-education-form>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Add Involvements</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-involvements formArrayName="involvement" [itemsFormArray]="myForm.get('involvement')">
+                    </app-involvements>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;&nbsp;Add your Interest or Awards</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-personal formArrayName="personal" [itemsFormArray]="myForm.get('personal')">
+                    </app-personal>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+
+            <div *ngIf="myForm.value['resumetype'] === 1">
+              <!-- type == student -->
+              <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Add Education</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-education-form formArrayName="education" [itemsFormArray]="myForm.get('education')">
+                    </app-education-form>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Add Involvement</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-involvements formArrayName="involvement" [itemsFormArray]="myForm.get('involvement')">
+                    </app-involvements>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;&nbsp;Add Job</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-jobs formArrayName="jobs" [itemsFormArray]="myForm.get('jobs')">
+                    </app-jobs>
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <b><i class="fa fa-certificate" aria-hidden="true"></i>&nbsp;&nbsp;Add Interest or Awards</b>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <app-personal formArrayName="personal" [itemsFormArray]="myForm.get('personal')">
+                    </app-personal>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+          </div>
+          <hr>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- page begins -->
+  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12" id="right" style="padding-left:50px; padding-top:100px;">
+    <!-- <alertexceed></alertexceed> -->
+    <div *ngIf="exceed_page">
+        <div id="alertBox"  class="notify errorbox error alert-dismissable">
+          <a class="close" (click)="removeAlert()">&times;</a>
+          <h1>Warning!</h1> <span class="alerticon"><img src="../../../../assets/icons/warning_v2.png" alt="error" /></span>
+          <p class="warning">If you continue typing, you might exceed one page.</p>
+          <p class="text-center"><button class="btn btn-sm btn-warning" style="cursor:pointer;" (click)="mute()">Mute this message</button></p>          
+        </div> 
+    </div>
+
+    <div class="LETTER">
+      <section class="sheet padding-10mm" #test>
+        <!-- start resume content -->
+        <!-- option = professional -->
+        <div class="view-main-screen" #mainScreen *ngIf="myForm.value['resumetype'] === 2">
+          <div class="name">
+            <h3>{{myForm?.value.fullname}}</h3>
+          </div>
+          <div class="address">
+            <p class="text-center">
+              <span *ngIf="myForm?.value.email">{{myForm?.value.email}}</span>
+              <span *ngIf="myForm?.value.phone">&nbsp;|&nbsp;{{myForm?.value.phone}}</span>
+              <span *ngIf="myForm?.value.address">&nbsp;|&nbsp;{{myForm?.value.address}}</span>
+            </p>
+          </div>
+          <div class="addressbar">
+            <hr>
+          </div>
+          <!-- MAIN PROFESSIONAL CONTENT -->
+          <!-- professional exp -->
+          <div *ngIf="jobs_show">
+            <div class="title">
+              <p class="text-uppercase">Professional experience</p>
+            </div>
+            <div *ngFor="let jobs of myForm?.value.jobs; let idx=index">
+              <div class="title-category">
+                <p>
+                  <span *ngIf="jobs.company">{{jobs.company}}</span><span *ngIf="jobs.company_location">&nbsp;|&nbsp;{{jobs.company_location}} </span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&!jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp; <span *ngIf="!jobs.present">{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span><span *ngIf="jobs.present">Present</span><span</span>
+                </p>
+                <div class="title-subject">
+                  <p><span *ngIf="jobs.job_title">{{jobs.job_title}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;<span *ngIf="!jobs.present">{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span><span *ngIf="jobs.present">Present</span></span>
+                  </p>
+                </div>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let job_description of jobs.job_description; let idx=index" style="white-space: pre-wrap;">{{job_description.brief_description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <div *ngIf="edu_show">
+            <div class="title">
+              <p class="text-uppercase">Education</p>
+            </div>
+            <div *ngFor="let edu of myForm?.value.education; let idx=index">
+              <div class="title-category">
+                <p>{{edu.school}}<span *ngIf="edu.school_location">&nbsp;|&nbsp;{{edu.school_location}}</span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="edu.school&&!edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                </p>
+              </div>
+              <div class="title-subject">
+                <p>{{edu.degree}}
+                  <span class="float-right" style="margin-right:15px;" *ngIf="edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                </p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let edu_description of edu.education_description; let idx=index" style="white-space: pre-wrap;">{{edu_description.brief_description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <!-- involvement exp -->
+          <div *ngIf="involvements_show">
+            <div class="title">
+              <p class="text-uppercase">Involvements</p>
+            </div>
+            <div *ngFor="let involvement of myForm?.value.involvement; let idx=index">
+              <div class="title-category">
+                <p>{{involvement.involvement_name}}<span *ngIf="involvement.position_title&&involvement.involvement_name">&nbsp;|&nbsp;{{involvement.position_title}}</span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="(involvement.position_title||involvement.involvement_name)&&(involvement.start_month || involvement.start_year || involvement.end_month || involvement.end_year)">{{involvement.start_month}}&nbsp;{{involvement.start_year}}&nbsp;-&nbsp;{{involvement.end_month}}&nbsp;{{involvement.end_year}}</span>
+                </p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let involvement_description of involvement.involvement_description; let idx=index" style="white-space: pre-wrap;"><span>{{involvement_description.brief_description}}</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <!-- interest and awards -->
+          <div *ngIf="personal_show">
+            <div class="title">
+              <p class="text-uppercase">Personal Interest and Achievements</p>
+            </div>
+            <div class="content">
+              <ul class="content-li">
+                <li *ngFor="let personal of myForm?.value.personal; let idx=index" style="white-space: pre-wrap;">{{personal.personal_details}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- option = student -->
+        <div class="view-main-screen" #mainScreen *ngIf="myForm.value['resumetype'] === 1">
+          <div class="name">
+            <h3>{{myForm?.value.fullname}}</h3>
+          </div>
+          <div class="address">
+            <p class="text-center">
+              <span *ngIf="myForm?.value.email">{{myForm?.value.email}}</span>
+              <span *ngIf="myForm?.value.phone">&nbsp;|&nbsp;{{myForm?.value.phone}}</span>
+              <span *ngIf="myForm?.value.address">&nbsp;|&nbsp;{{myForm?.value.address}}</span>
+            </p>
+          </div>
+          <div class="addressbar">
+            <hr>
+          </div>
+          <!-- MAIN STUDENT CONTENT -->
+          <!-- education exp -->
+          <div *ngIf="edu_show">
+            <div class="title">
+              <p class="text-uppercase">Education</p>
+            </div>
+            <div *ngFor="let edu of myForm?.value.education; let idx=index">
+              <div class="title-category">
+                <p>{{edu.school}}<span *ngIf="edu.school_location">&nbsp;|&nbsp;{{edu.school_location}}</span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="edu.school&&!edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                </p>
+              </div>
+              <div class="title-subject">
+                <p>{{edu.degree}}
+                  <span class="float-right" style="margin-right:15px;" *ngIf="edu.degree&&(edu.grad_month || edu.grad_year)">{{edu.grad_month}}&nbsp;{{edu.grad_year}}</span>
+                </p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let edu_description of edu.education_description; let idx=index" style="white-space: pre-wrap;">{{edu_description.brief_description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <!-- involvement exp -->
+          <div *ngIf="involvements_show">
+            <div class="title">
+              <p class="text-uppercase">Involvements</p>
+            </div>
+            <div *ngFor="let involvement of myForm?.value.involvement; let idx=index">
+              <div class="title-category">
+                <p>{{involvement.involvement_name}}<span *ngIf="involvement.position_title&&involvement.involvement_name">&nbsp;|&nbsp;{{involvement.position_title}}</span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="(involvement.position_title||involvement.involvement_name)&&(involvement.start_month || involvement.start_year || involvement.end_month || involvement.end_year)">{{involvement.start_month}}&nbsp;{{involvement.start_year}}&nbsp;-&nbsp;{{involvement.end_month}}&nbsp;{{involvement.end_year}}</span>
+                </p>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let involvement_description of involvement.involvement_description; let idx=index" style="white-space: pre-wrap;">{{involvement_description.brief_description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <!-- professional exp -->
+          <div *ngIf="jobs_show">
+            <div class="title">
+              <p class="text-uppercase">Professional experience</p>
+            </div>
+            <!-- <span class="float-right" style="margin-right:15px;" *ngIf="jobs.company&&jobs.job_start_date"> {{jobs.job_start_date}} </span><span *ngIf="jobs.company&&jobs.job_start_date">&nbsp;-&nbsp;{{jobs.job_start_date}}</span>< -->
+            <div *ngFor="let jobs of myForm?.value.jobs; let idx=index">
+              <div class="title-category">
+                <p>
+                  <span *ngIf="jobs.company">{{jobs.company}}</span><span *ngIf="jobs.company_location">&nbsp;|&nbsp;{{jobs.company_location}} </span>
+                  <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&!jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp; <span *ngIf="!jobs.present">{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span><span *ngIf="jobs.present">Present</span><span</span>
+                </p>
+                <div class="title-subject">
+                  <p><span *ngIf="jobs.job_title">{{jobs.job_title}}</span>
+                    <span class="float-right" style="margin-right:15px;" *ngIf="(jobs.company&&jobs.job_title)&&(jobs.start_month||jobs.start_year||jobs.end_month||jobs.end_year)"> {{jobs.start_month}}&nbsp;{{jobs.start_year}}&nbsp;-&nbsp;<span *ngIf="!jobs.present">{{jobs.end_month}}&nbsp;{{jobs.end_year}}</span><span *ngIf="jobs.present">Present</span></span>
+                  </p>
+                </div>
+              </div>
+              <div class="content">
+                <ul class="content-li">
+                  <li *ngFor="let job_description of jobs.job_description; let idx=index" style="white-space: pre-wrap;">{{job_description.brief_description}}</li>
+                </ul>
+              </div>
+            </div>
+            <div class="title-divider">
+              <hr/>
+            </div>
+          </div>
+          <!-- interest and awards -->
+          <div *ngIf="personal_show">
+            <div class="title">
+              <p class="text-uppercase">Personal Interest and Achievements</p>
+            </div>
+            <div class="content">
+              <ul class="content-li">
+                <li *ngFor="let personal of myForm?.value.personal; let idx=index" style="white-space: pre-wrap;">{{personal.personal_details}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- balls -->
+  <div id="ballMenuContainer" >
+    <div id="menuBall2" class="menuBall" (click)="save()">
+      <a class="ball redball">
+        <div class="menuText">
+          Save
+        </div>
+      </a>
+    </div>
+
+    <div id="menuBall4" class="menuBall" (click)="print()">
+      <a class="ball blueball">
+        <div class="menuText">
+          Print
+        </div>
+      </a>
+    </div>
+  </div>

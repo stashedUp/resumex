@@ -1,0 +1,30 @@
+/* student type btn */
+.btn-outline-involvement {
+    color: #364652;
+    background-image: none;
+    background-color: transparent;
+    border-color: #364652;
+  }
+  
+  .btn-outline-involvement:hover {
+    color: #fff;
+    background-color: #4e5c66;
+    border-color: #4e5c66;
+  }
+  
+  .btn-outline-involvement:focus, .btn-outline-involvement.focus {
+    -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+            box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+  }
+  
+  .btn-outline-involvement.disabled, .btn-outline-involvement:disabled {
+    color: #364652;
+    background-color: transparent;
+  }
+  
+  .btn-outline-involvement:active, .btn-outline-involvement.active,
+  .show > .btn-outline-involvement.dropdown-toggle {
+    color: #fff;
+    background-color: #364652;
+    border-color: #364652;
+  }

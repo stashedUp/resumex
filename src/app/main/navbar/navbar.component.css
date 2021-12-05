@@ -1,0 +1,182 @@
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.a:focus,.a:active,a.visited {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-fixed-top {
+ top: 3px;
+}
+
+.navbar { 
+ margin-bottom: 0px; 
+ padding-bottom: 5px;
+ padding-top: 3px;
+ padding-left: 30px;
+ padding-right: 30px;
+}
+
+.navbar-custom {
+     background-color: #242829;
+ 
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+   color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+   color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+   color: #ffffff;
+}
+
+/* sign in */
+.btn-outline-signin {
+ color: wheat;
+ background-image: none;
+ background-color: transparent;
+ border-color: wheat;
+}
+
+.btn-outline-signin:hover {
+ color: #fff;
+ background-color: #776D5A;
+ border-color: #776D5A;
+}
+
+.btn-outline-signin:focus, .btn-outline-signin.focus {
+ -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+         box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-signin.disabled, .btn-outline-signin:disabled {
+ color: #776D5A;
+ background-color: transparent;
+}
+
+.btn-outline-signin:active, .btn-outline-signin.active,
+.show > .btn-outline-signin.dropdown-toggle {
+ color: #fff;
+ background-color: #776D5A;
+ border-color: #776D5A;
+}
+
+/* sign in alternate */
+.btn-signin {
+ color: #fff;
+ background-color: #686464;
+ border-color: #686464;
+}
+
+.btn-signin:hover {
+ color: #fff;
+ background-color: #A5A4A4;
+ border-color: #AAAAAA;
+}
+
+.btn-signin:focus, .btn-signin.focus {
+ -webkit-box-shadow: 0 0 0 2px rgba(184, 181, 92, 0.50);
+         box-shadow: 0 0 0 2px rgba(169, 184, 92, 0.50);
+}
+
+.btn-signin.disabled, .btn-signin:disabled {
+ background-color: #776D5A;
+ border-color: #776D5A;
+}
+
+.btn-signin:active, .btn-signin.active,
+.show > .btn-success.dropdown-toggle {
+ color: #fff;
+ background-color: #69593B;
+ background-image: none;
+ border-color: #69593B;
+}
+
+/*version*/
+
+.btn-outline-version {
+ color: wheat;
+ background-image: none;
+ background-color: transparent;
+ border-color: wheat;
+}
+
+.btn-outline-version:hover {
+ color: #ffffff;
+ background-color: #776D5A;
+ border-color: #776D5A;
+}
+
+.btn-outline-version:focus, .btn-outline-version.focus {
+ -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+         box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-version.disabled, .btn-outline-version:disabled {
+ color: #776D5A;
+ background-color: transparent;
+}
+
+.btn-outline-version:active, .btn-outline-version.active,
+.show > .btn-outline-version.dropdown-toggle {
+ color: #ffffff;
+ background-color: #776D5A;
+ border-color: #776D5A;
+}
+
+/*setting*/
+.btn-outline-setting {
+ color: #A5A4A4;
+ background-image: none;
+ background-color: transparent;
+ border-color: #A5A4A4
+}
+
+.btn-outline-setting:hover {
+ color: #303535;
+ background-color: #B6B6B6;
+ border-color: #B6B6B6;
+}
+
+.btn-outline-setting:focus, .btn-outline-setting.focus {
+ -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+         box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-setting.disabled, .btn-outline-setting:disabled {
+ color: #B6B6B6;
+ background-color: transparent;
+}
+
+.btn-outline-setting:active, .btn-outline-setting.active,
+.show > .btn-outline-setting.dropdown-toggle {
+ color: #303535;
+ background-color: #B6B6B6;
+ border-color: #B6B6B6;
+}
+
+.centered-modal {
+ margin-top: 200px;
+}
+
+@-ms-keyframes tie{0%{-ms-transform:rotate(3deg);}50%{-ms-transform:rotate(-3deg);}100%{-ms-transform:rotate(3deg);}}
+@-moz-keyframes tie{0%{-moz-transform:rotate(3deg);}50%{-moz-transform:rotate(-3deg);}100%{-moz-transform:rotate(3deg);}}
+@-webkit-keyframes tie{0%{-webkit-transform:rotate(3deg);}50%{-webkit-transform:rotate(-3deg);}100%{-webkit-transform:rotate(3deg);}}
+@keyframes tie{0%{transform:rotate(3deg);}50%{transform:rotate(-3deg);}100%{transform:rotate(3deg);}}
+img.tie-tight:hover{-ms-animation:tie .3s 2;-moz-animation:tie .3s 2;-webkit-animation:tie .3s 2;animation:tie .3s 2;}
+
+.dropdown-item.active {
+ color: #fff;
+ text-decoration: none;
+ background-color: #364652;
+}

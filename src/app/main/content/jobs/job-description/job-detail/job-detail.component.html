@@ -1,0 +1,5 @@
+           
+<app-brief-description (notifyjobdesc)='onNotify($event)' *ngFor="let description of job.controls; let i=index" [index]="i" [description]="description" (removed)="job.removeAt($event)">
+</app-brief-description>
+<h6><span *ngIf="exceed" class="exceed_warning">Careful, your resume might exceed a page!</span></h6>
+<button type="button" class="btn btn-link" (click)="addItemy()">Add more bullets</button>

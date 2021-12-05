@@ -1,0 +1,591 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse header-transparent fixed-top">
+    <a class="navbar-brand" routerLink="/main" routerLinkActive="active">
+        <img class="tie-tight" src="assets/images/brand/resumex_tie.png" alt="tie logo">
+        <img src="assets/images/brand/resumex_bold_word.png" alt="resumex logo">
+    </a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a pageScroll pageScrollSpeed=1000 class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a pageScroll pageScrollSpeed=1000 class="nav-link" href="#about">Features</a>
+            </li>
+            <li class="nav-item">
+                <a pageScroll pageScrollSpeed=1000 class="nav-link" href="#howitworks">How It Works</a>
+            </li>
+            <li class="nav-item">
+                <a pageScroll pageScrollSpeed=1000 class="nav-link" href="#pricing">Pricing</a>
+            </li>
+            <li class="nav-item">
+                <a pageScroll pageScrollSpeed=1000 class="nav-link" href="#news">Journal</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="login()" class="nav-link">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="signUp()" class="nav-link bg-primary btn-rounded" style="color:white">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section id='home' class="hero heroFullscreen bg-parallax" data-jarallax='{"speed": 0.2}' style='background-image: url("assets/images/landing-page/bg6.jpg")'>
+    <div class='hero-overlay'></div>
+    <div class="d-flex align-items-center">
+        <div class="scroll-to hero-mouse">
+            <a style="color: white" pageScroll pageScrollSpeed=1000 href="#about">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-8  offset-md-2 text-center">
+                    <h2>Pitch Yourself In One Page.</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8  offset-md-2 text-center">
+                    <h4 style="padding-top:0px;letter-spacing: 0.1em;color:white;font-weight: 200">ResumeX is an online tool that helps you create a powerful, impactful resume quickly.</h4>
+                    <a pageScroll pageScrollSpeed=1000 href="#about" class="btn btn-white-outline btn-lg btn-linkify" style="color:aliceblue; margin-top:5px;">Learn More</a>
+                    <a (click)="createResume()" class="btn btn-white-outline btn-lg btn-linkify" style="color:aliceblue; margin-left:5px; margin-top:5px;">Try For Free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/.hero-->
+
+<section id="about" class="pt50 pb60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <div class="section-title">
+                    <h4>Features</h4>
+                    <p class="lead">
+                        We provide the ideal template, along with phrase suggestions, and the ability to save and share multiple versions of your
+                        resume. Start creating your FREE resume!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/section title-->
+        <div class="row">
+            <div class="col-md-3 mb30 wow zoomIn" data-wow-duration=".5s" data-wow-delay=".2s">
+                <div class="media icon-box">
+                    <div class="d-flex mr-4">
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="mt-0 text-uppercase">Formatted template
+                        </h4>
+                        <p class='mb0 text-small'>
+                            Don't worry about the lines and margins for your resume. We've selected the optimal template favored by most companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-md-3 mb30 wow zoomIn" data-wow-duration=".5s" data-wow-delay=".4s">
+                <div class="media icon-box">
+                    <div class="d-flex mr-4">
+                        <i class="fa fa-database" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="mt-0 text-uppercase">
+                            Store multiple versions
+                        </h4>
+                        <p class='mb0 text-small'>
+                            Applying for multiple jobs? Need multiple revisions? ResumeX lets you save up to 10 versions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-md-3 mb30 wow zoomIn" data-wow-duration=".5s" data-wow-delay=".6s">
+                <div class="media icon-box">
+                    <div class="d-flex mr-4">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="mt-0 text-uppercase">
+                            Phrase suggestions
+                        </h4>
+                        <p class='mb0 text-small'>
+                            Our suggestion tool provides you phrases based on your accomplishments and responsibilites in your current or previous
+                            job.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-md-3 mb30 wow zoomIn" data-wow-duration=".5s" data-wow-delay=".6s">
+                <div class="media icon-box">
+                    <div class="d-flex mr-4">
+                        <i class="fa fa-share" aria-hidden="true"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="mt-0 text-uppercase">
+                            Share revisions with others
+                        </h4>
+                        <p class='mb0 text-small'>
+                            Share your resume with others to get their feedback.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+        </div>
+    </div>
+</section>
+<!--about us-->
+
+<div class="parallax-cta pt50 pb10 bg-parallax text-center" data-jarallax='{"speed": 0.1}' style='background-image: url("assets/images/landing-page/bg2.jpg")'>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".2s">
+                <div class="media fun-facts">
+                    <div class="media-body">
+                        <p class="mt-0">
+                            <img src="assets/images/target.png" class="img-fluid" style="margin-top:10px;" alt="Responsive image">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-lg-3 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".4s">
+                <div class="media fun-facts">
+                    <div class="media-body">
+                        <p class="mt-0">
+                            <img src="assets/images/amazon.png" class="img-fluid" style="margin-top:10px;" alt="Responsive image">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-lg-3 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".6s">
+                <div class="media fun-facts">
+                    <div class="media-body">
+                        <p class="mt-0">
+                            <img src="assets/images/disney.png" class="img-fluid" style="margin-top:10px;" alt="Responsive image">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-lg-3 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".8s">
+                <div class="media fun-facts">
+                    <div class="media-body">
+                        <p class="mt-0">
+                            <img src="assets/images/netflix.png" class="img-fluid" style="margin-top:10px;" alt="Responsive image">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/col-->
+        </div>
+    </div>
+</div>
+<!--/.fun facts-->
+
+<!--Features Section-->
+<section class="feature-styles" id="howitworks" class="pt50 pb60">
+    <div class="row">
+        <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3" >
+            <div class="section-title" style="margin-bottom: 0px !important;">
+                <h4>How It Works</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container feature-container feature-styles pt20">
+        <div class="row">
+            <div class="col-lg-push-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <img class="main-image" src="assets/images/gifs/attempt11-slide1.gif" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="col-lg-pull-5 col-md-6 col-sm-12 col-xs-12" style="padding-top:10px;">
+                <h3>Live Preview</h3>
+                <div class="txt">
+                    ResumeX allows you to preview your resume as you type. We researched and selected the optimal resume template that is
+                    favored by most companies.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container feature-container feature-styles pt20">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <img class="main-image" src="assets/images/gifs/attempt6-slide2.gif" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="padding-top:10px;">
+                <h3>Phrase Suggestions</h3>
+                <div class="txt">
+                    Having a hard time figuring out what to write? Our phrase suggestion tool provides you phrases based on your accomplishments
+                    and responsibilites in your current or previous job.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container feature-container feature-styles pt20">
+        <div class="row">
+            <div class="col-lg-push-6 col-md-6 col-sm-12 col-xs-12 text-center">
+                <img class="main-image" src="assets/images/gifs/attempt10-slide3.gif" class="img-fluid" alt="Responsive image">
+            </div>
+
+            <div class="col-lg-pull-5 col-md-6 col-sm-12 col-xs-12" style="padding-top:10px;">
+                <h3>Share</h3>
+                <div class="txt">
+                    Save multiple versions of your resume and share your resume with your career service advisor, professors, friends or mentor
+                    to get their feedback.
+                </div>
+                <div class="getstarted smooth wow fadeInRight" data-wow-delay=".2s" data-wow-duration=".3s">
+                    <a (click)="createResume()">Create my free resume!
+                        <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Extra Services-->
+<div class="bg-faded pt50 pb60" id="pricing">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <div class="section-title">
+                    <h4>Pricing</h4>
+                    <p class="lead">Try resumex for free. Sign up to access more features!</p>
+                </div>
+            </div>
+        </div>
+        <!--/section title-->
+        <div class="row align-items-center">
+            <!--/col-->
+            <div class="col-md-6 mb30 wow zoomIn" data-wow-delay=".3s" data-wow-duration=".4s">
+                <div class="price-card">
+                    <h4>Basic</h4>
+                    <h1 class="mb0">
+                        FREE
+                    </h1>
+                    <hr>
+                    <ul class="mb0 list-unstyled">
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Formatted template</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Limited phrase suggestions</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Print anytime, anywhere</li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                        <li>&nbsp;</li>
+                    </ul>
+                    <hr>
+                    <button (click)="createResume()" class="btn btn-rounded btn-lg  btn-secondary">Try for free</button>
+                </div>
+            </div>
+            <!--/col-->
+            <div class="col-md-6 mb30 wow zoomIn" data-wow-delay=".4s" data-wow-duration=".6s">
+                <div class="price-card">
+                    <h4>Standard</h4>
+                    <h1 class="mb0 text-primary">
+                        <sup>$</sup> 1.00
+                        <sub>/M</sub>
+                        <span class="float-right">Best Value</span>
+                    </h1>
+                    <hr>
+                    <ul class="mb0 list-unstyled">
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Formatted template</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Save multiple versions</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Share revisions with others</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Print or download anytime</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Additional phrase suggestions</li>
+                        <li>
+                            <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Easily affordable, cancel anytime</li>
+                    </ul>
+                    <hr>
+                    <button (click)="signUp()" class="btn btn-rounded btn-lg btn-primary">Sign Up</button>
+                </div>
+            </div>
+            <!--/col-->
+        </div>
+    </div>
+</div>
+<!--/pricing-->
+
+<!--/process-->
+<div class="textillate-container bg-parllax parallax-overlay pt50 pb60" data-jarallax='{"speed": 0.2}' style='background-image: url("assets/images/landing-page/bg4.jpg")'>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="more_info_title">
+                    <h2>Who's using us</h2>
+                </div>
+                <!-- <p class="mb20"> -->
+                <!-- <div class="container"> -->
+                <div class="row">
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".2s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/berkeley.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".4s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/uofi.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".6s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/drake.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".8s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/kirkwood.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".8s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/iowa-state.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                    <div class="col-lg-2 col-md-6 mb30 wow fadeIn" data-wow-duration=".5s" data-wow-delay=".8s">
+                        <div class="media fun-facts">
+                            <div class="media-body">
+                                <p class="mt-0">
+                                    <img class="main-image" src="assets/images/list-users/duke.png" class="img-fluid" alt="Responsive image">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-->
+                </div>
+                <!-- </div> -->
+                <!-- </p> -->
+                <a (click)="createResume()" class="btn btn-white-outline btn-lg btn-linkify" style="color:aliceblue;">Create My Professional Resume</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ animated text-->
+<section id="news" class="pt50 pb60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <div class="section-title">
+                    <h4>From Journal</h4>
+                </div>
+            </div>
+        </div>
+        <!--/section title-->
+        <div class='owl-row'>
+            <div class="owl-news owl-theme owl-carousel">
+                <div class="item">
+                    <div class='post-card'>
+                        <div class='post-thumb mb20'>
+                            <a target="_blank" href='https://www.cnbc.com/2017/08/08/5-resume-tips-to-help-you-land-a-better-job-early-in-your-career.html'>
+                                <img src='assets/images/landing-page/img1.jpg' alt='' class='img-fluid'>
+                            </a>
+                        </div>
+                        <!--/.thumb-->
+                        <div class='post-meta'>
+                            <h4>
+                                <a target="_blank" href='https://www.cnbc.com/2017/08/08/5-resume-tips-to-help-you-land-a-better-job-early-in-your-career.html'>5 resume tips can help you land a better job early in your career</a>
+                            </h4>
+                        </div>
+                        <p>
+                            Scoring a first job out of college is one of the biggest hurdles for young professionals. The next hurdle comes when it's
+                            time move up in rank...
+                        </p>
+                        <div class='text-right'>
+                            <a target="_blank" href='phttps://www.cnbc.com/2017/08/08/5-resume-tips-to-help-you-land-a-better-job-early-in-your-career.html'>Read More &nbsp;
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item-->
+                <div class="item">
+                    <div class='post-card'>
+                        <div class='post-thumb mb20'>
+                            <a target="_blank" href='http://time.com/money/4621066/free-resume-word-template-2017/'>
+                                <img src='assets/images/landing-page/img2.jpg' alt='' class='img-fluid'>
+                            </a>
+                        </div>
+                        <!--/.thumb-->
+                        <div class='post-meta'>
+                            <h4>
+                                <a target="_blank" href='http://time.com/money/4621066/free-resume-word-template-2017/'>What Your Resume Should Look Like in 2017</a>
+                            </h4>
+                        </div>
+                        <p>
+                            Some things never go out style, though: When it comes to packaging your work experience, crisp writing and brevity still
+                            reign supreme. Add a clean ...
+                        </p>
+                        <div class='text-right'>
+                            <a target="_blank" href='http://time.com/money/4621066/free-resume-word-template-2017/'>Read More
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item-->
+                <div class="item">
+                    <div class='post-card'>
+                        <div class='post-thumb mb20'>
+                            <a target="_blank" href='https://www.themuse.com/advice/43-resume-tips-that-will-help-you-get-hired'>
+                                <img src='assets/images/landing-page/img3.jpg' alt='' class='img-fluid'>
+                            </a>
+                        </div>
+                        <!--/.thumb-->
+                        <div class='post-meta'>
+                            <h4>
+                                <a target="_blank" href='https://www.themuse.com/advice/43-resume-tips-that-will-help-you-get-hired'>43 Resume Tips That Will Help You Get Hired</a>
+                            </h4>
+                        </div>
+                        <p>
+                            What experiences and accomplishments should you include for the jobs you’ve got your eye on? What new resume rules and trends
+                            should you be following? One page or two?
+                        </p>
+                        <div class='text-right'>
+                            <a target="_blank" href='https://www.themuse.com/advice/43-resume-tips-that-will-help-you-get-hired'>Read More
+                                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item-->
+            </div>
+        </div>
+    </div>
+
+</section>
+<!--/ Journal-->
+<div class='testimonials bg-parllax parallax-overlay sectionDark pt50 pb60' data-jarallax='{"speed": 0.2}' style='background-image: url("assets/images/landing-page/bg2.jpg")'>
+    <div class='container'>
+        <div class="row">
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <div class="section-title">
+                    <h4>Customer Reviews</h4>
+                    <p class="lead">Hear what users say about us</p>
+                </div>
+            </div>
+        </div>
+        <!--/section title-->
+
+        <div class='owl-feedback owl-carousel owl-theme'>
+            <div class='item'>
+                <div class='row align-items-center'>
+                    <!-- <div class='col-md-2 offset-md-1'>
+                        <img src='assets/images/landing-page/team-1.jpg' alt='' class='rounded-circle img-fluid' width='120'>
+                    </div> -->
+                    <div class='col-md-8 offset-md-2'>
+
+                        <p class='lead'>
+                            "After almost 3 years without a resume, I was lost. Being someone who struggles when working on my resume, especially with
+                            phrase suggestions, this tool made it a 100% easier. Thanks! "
+                        </p>
+                        <h4 class="text-uppercase mb5">Jonathan Lee</h4>
+                        <em>Communications Major, graduating in Fall 2018</em>
+                    </div>
+                </div>
+            </div>
+            <!--/item-->
+            <div class='item'>
+                <div class='row align-items-center'>
+                    <!-- <div class='col-md-2 offset-md-1'>
+                        <img src='assets/images/landing-page/team-2.jpg' alt='' class='rounded-circle img-fluid' width='120'>
+                    </div> -->
+                    <div class='col-md-8 offset-md-2'>
+
+                        <p class='lead'>
+                            "Clean interface. They select the optimal template for you so that you don't have to stuggle fixing the margins or finding
+                            a template that works "
+                        </p>
+                        <h4 class="text-uppercase mb5">Michael D</h4>
+                        <em>Finance and Accounting double major, graduating in Spring 2018</em>
+                    </div>
+                </div>
+            </div>
+            <!--/item-->
+            <div class='item'>
+                <div class='row align-items-center'>
+                    <!-- <div class='col-md-2 offset-md-1'>
+                        <img src='assets/images/landing-page/team-3.jpg' alt='' class='rounded-circle img-fluid' width='120'>
+                    </div> -->
+                    <div class='col-md-8 offset-md-2'>
+
+                        <p class='lead'>
+                            " I tried the free version and it worked beyond my expectations "
+                        </p>
+                        <h4 class="text-uppercase mb5">Jessica L</h4>
+                        <em>Graduated in Fall 2017</em>
+                    </div>
+                </div>
+            </div>
+            <!--/item-->
+        </div>
+    </div>
+</div>
+<!--/ Testimonials-->
+<div class="bottom-links container-fluid">
+    <div class="row align-items-center">
+        <a class="col-md-6 links-col bg-dark wow zoomIn linkify" data-wow-delay=".2s" data-wow-duration=".3s" (click)="createResume()">
+            <span class="text-uppercase">Create my professional resume</span>
+            Try For Free
+        </a>
+        <a class="col-md-6 links-col secondary-col wow zoomIn linkify" data-wow-delay=".4s" data-wow-duration=".5s" (click)="signUp()">
+            <span class="text-uppercase">Enjoy full access</span>
+            Sign Up
+        </a>
+    </div>
+</div>
+<!--/.bottom links-->
+<footer id="footer" class="footer  pt30 pb90">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <span>
+                    &copy; ResumeX powered by KeplersBox 2018
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--back to top-->
+<a href="#" class="back-to-top hidden-xs-down" id="back-to-top">
+    <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+</a>

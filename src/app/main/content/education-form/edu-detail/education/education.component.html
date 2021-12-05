@@ -1,0 +1,6 @@
+<app-education-desc *ngFor="let description of edu.controls; let i=index" [index]="i" [description]="description" (removed)="edu.removeAt($event)"
+  (notifyedudesc)='onNotify($event)'>
+</app-education-desc>
+<h6><span *ngIf="exceed" class="exceed_warning">Careful, your resume might exceed a page!</span></h6>
+
+<button type="button" class="btn btn-link" (click)="addItemy()">Add more bullets</button>

@@ -1,0 +1,51 @@
+{
+    "taskDefinition": {
+        "containerDefinitions": [
+            {
+                "image": "${image}",
+                "essential": true,
+                "memoryReservation": 512,
+                "portMappings": [
+                    {
+                        "containerPort": 3000,
+                        "hostPort": 0
+                    }
+                ],
+                "environment": [
+                    {
+                        "name": "AWS_REGION",
+                        "value": "${region}"
+                    },
+                    {
+                        "name": "CONFIG_COMMIT_HASH",
+                        "value": "${config_commit_hash}"
+                    },
+                    {
+                        "name": "DB_HOST",
+                        "value": "${db_host}"
+                    },
+                    {
+                        "name": "DB_USER",
+                        "value": "${db_user}"
+                    },
+                    {
+                        "name": "DB_PASS",
+                        "value": "${db_pass}"
+                    },
+                    {
+                        "name": "DB_NAME",
+                        "value": "${db_name}"
+                    }
+                ],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-group": "/${environment}/app",
+                        "awslogs-region": "${region}",
+                        "awslogs-stream-prefix": "app-logs"
+                    }
+                }
+            }
+        ]
+    }
+}

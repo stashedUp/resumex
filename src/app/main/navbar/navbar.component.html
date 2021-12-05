@@ -1,0 +1,119 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse  fixed-top navbar-fixed-top" *ngIf="publishPage">
+    <a class="navbar-brand" routerLink="/user" routerLinkActive="active" *ngIf="currentUser">
+      <img class="tie-tight" src="../../../assets/images/brand/resumex_tie.png" alt="tie logo">
+      <img src="../../../assets/images/brand/resumex_bold_word.png" alt="resumex logo">
+    </a>
+    <a class="navbar-brand" routerLink="/main" routerLinkActive="active" *ngIf="!currentUser">
+      <img class="tie-tight" src="../../../assets/images/brand/resumex_tie.png" alt="tie logo">
+      <img src="../../../assets/images/brand/resumex_bold_word.png" alt="resumex logo">
+    </a>
+
+    <button type="button" class="navbar-toggler navbar-toggler-right" (click)="isExpanded = !isExpanded" [attr.aria-expanded]="!isExpanded"
+      aria-controls="navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent" [ngbCollapse]="!isExpanded">
+        <div class="col" *ngIf="currentUser">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-sm btn-outline-version" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="fa fa-files-o" aria-hidden="true"></i>
+              &nbsp;&nbsp;Versions</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button *ngFor="let version of versions; let i = index" [class.active]="version.resume_id == selectedRow" [attr.data-index]="i"
+                class="dropdown-item" (click)="selectVersion(version.resume_id)">
+                <i class="fa fa-slack" aria-hidden="true"></i>&nbsp;&nbsp;Version&nbsp;{{i+1}}</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="createNew()">
+                <i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Add another version</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="deleteResume()">
+                <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Remove this version</button>
+            </div>
+          </div>
+        </div>
+    
+        <ul class="nav navbar-nav mr-auto">
+        </ul>
+        <div class="btn-nav navbar-right">
+          <button class="btn btn-sm btn-outline-signin" (click)="createResume()" *ngIf="!currentUser" style="margin-right:10px;">Sign Up</button>
+          <button class="btn btn-sm btn-signin right" (click)="login()" *ngIf="!currentUser" style="margin-right:10px;">Log In</button>
+    
+          <div class="col" *ngIf="currentUser">
+            <div ngbDropdown placement="bottom-right" class="d-inline-block">
+              <button class="btn btn-sm btn-outline-setting" id="dropdownBasic1" ngbDropdownToggle>
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                &nbsp;&nbsp;Settings</button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button class="dropdown-item" (click)="accountContent()">
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;Account</button>
+                <button class="dropdown-item" (click)="subscriptionContent()">
+                  <i class="fa fa-google-wallet" aria-hidden="true"></i>&nbsp;&nbsp;Subscription</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" (click)="logout()">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</nav>
+<!-- <nav class="navbar navbar-expand-md  navbar-light navbar-custom fixed-top navbar-fixed-top" *ngIf="publishPage">
+  <a class="navbar-brand" routerLink="/user" routerLinkActive="active" *ngIf="currentUser">
+    <img class="tie-tight" src="../../../assets/images/brand/resumex_tie.png" alt="tie logo">
+    <img src="../../../assets/images/brand/resumex_bold_word.png" alt="resumex logo">
+  </a>
+  <a class="navbar-brand" routerLink="/main" routerLinkActive="active" *ngIf="!currentUser">
+    <img class="tie-tight" src="../../../assets/images/brand/resumex_tie.png" alt="tie logo">
+    <img src="../../../assets/images/brand/resumex_bold_word.png" alt="resumex logo">
+  </a>
+
+  <button type="button" class="navbar-toggler navbar-toggler-right" (click)="isExpanded = !isExpanded" [attr.aria-expanded]="!isExpanded"
+    aria-controls="navbarContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarContent" [ngbCollapse]="!isExpanded">
+    <div class="col" *ngIf="currentUser">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-sm btn-outline-version" id="dropdownBasic1" ngbDropdownToggle>
+          <i class="fa fa-files-o" aria-hidden="true"></i>
+          &nbsp;&nbsp;Versions</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button *ngFor="let version of versions; let i = index" [class.active]="version.resume_id == selectedRow" [attr.data-index]="i"
+            class="dropdown-item" (click)="selectVersion(version.resume_id)">
+            <i class="fa fa-slack" aria-hidden="true"></i>&nbsp;&nbsp;Version&nbsp;{{i+1}}</button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" (click)="createNew()">
+            <i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Add another version</button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" (click)="deleteResume()">
+            <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;Remove this version</button>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav navbar-nav mr-auto">
+    </ul>
+    <div class="btn-nav navbar-right">
+      <button class="btn btn-sm btn-outline-signin" (click)="createResume()" *ngIf="!currentUser" style="margin-right:10px;">Sign Up</button>
+      <button class="btn btn-sm btn-signin right" (click)="login()" *ngIf="!currentUser" style="margin-right:10px;">Log In</button>
+
+      <div class="col" *ngIf="currentUser">
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <button class="btn btn-sm btn-outline-setting" id="dropdownBasic1" ngbDropdownToggle>
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            &nbsp;&nbsp;Settings</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" (click)="accountContent()">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;Account</button>
+            <button class="dropdown-item" (click)="subscriptionContent()">
+              <i class="fa fa-google-wallet" aria-hidden="true"></i>&nbsp;&nbsp;Subscription</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()">
+              <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> -->

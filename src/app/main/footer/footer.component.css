@@ -1,0 +1,70 @@
+
+ .bg-faded{
+     background-color:#303535; 
+     color: wheat;
+     padding-top:40px; 
+}
+ 
+ ul.social {
+     list-style-type: none;
+ }
+ 
+ .footer-list li:hover {
+     cursor:pointer
+ } 
+ 
+ .social li {
+     background: none repeat scroll 0 0 #96AACE;
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     -o-border-radius: 50%;
+     -ms-border-radius: 50%;
+     border-radius: 50%;
+     float: left;
+     height: 36px;
+     line-height: 36px;
+     margin: 0 5px 0 0;
+     padding: 0;
+     text-align: center;
+     width: 36px;
+     transition: all 0.5s ease 0s;
+     -moz-transition: all 0.5s ease 0s;
+     -webkit-transition: all 0.5s ease 0s;
+     -ms-transition: all 0.5s ease 0s;
+     -o-transition: all 0.5s ease 0s;
+ }
+
+   /* Sticky footer styles
+-------------------------------------------------- */
+ .social li a {
+     color: #EDEFF1;
+     font-family: 'Quicksand',  sans-serif;
+ }
+ .social li:hover {
+     background: #d23c69;
+ }
+ .social li a i {
+     font-size: 16px;
+     margin: 0 0 0 5px;
+     color: #EDEFF1 !important;
+ }
+ 
+ ul.footer-list{
+ list-style-type: none;
+ font-family: 'Quicksand', sans-serif;
+ 
+ }
+ 
+ li.footer-title{
+  padding-bottom: 6px;
+  font-weight: 700;
+  font-size: 19px;
+ }
+ 
+ .love-resumex{
+     padding-top: 20px;
+     padding-bottom: 20px;
+     text-align:center;
+     font-family: 'Quicksand', sans-serif;
+ 
+ }

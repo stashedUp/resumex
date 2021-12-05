@@ -1,0 +1,6 @@
+<div id="alertBox" *ngFor="let alert of alerts" class="notify errorbox {{ cssClass(alert) }} alert-dismissable">
+        <a class="close" (click)="removeAlert(alert)">&times;</a>
+    <h1>Warning!</h1> <span class="alerticon"><img src="../../../../assets/icons/warning_v2.png" alt="error" /></span>
+    {{alert.message}}
+    <p>If you continue typing, you might exceed one page.</p>
+</div> 

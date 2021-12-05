@@ -1,0 +1,4 @@
+<app-activities *ngFor="let involvement of itemsFormArray.controls; let i=index" [index]="i" [involvement]="involvement"
+  (removed)="itemsFormArray.removeAt($event)">
+</app-activities>
+<button type="button" class="btn btn-outline-involvement btn-sm float-right" (click)="addItem()">I have more involvements</button>

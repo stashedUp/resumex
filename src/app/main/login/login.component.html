@@ -1,0 +1,57 @@
+
+<div class="modal-header">
+    <h5 class="modal-title">LOGIN</h5>
+    <a class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')" style="cursor:pointer;">
+        <span aria-hidden="true">&times;</span>
+    </a>
+</div>
+
+<div class="modal-body">
+    <div class="loginScreen" *ngIf="loginSection">
+        <ngb-alert *ngIf="errorMessage" type="danger" (close)="errorMessage = null">{{ message }}</ngb-alert>
+        <form [formGroup]="loginForm">
+            <div class="form-group">
+                <label for="email" style="color: #202323;">
+                    <b>Email</b>
+                </label>
+                <input class="form-control" type="email" formControlName="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="password" style="color: #202323;">
+                    <b>Password</b>
+                </label>
+                <input class="form-control" type="password" formControlName="password" />
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <a class="forgotPassword" (click)="forgotPassword()">I Forgot My Password</a>
+                <button class="btn btn-login float-right" type="submit" value="Submit" (click)="login()">
+                    Login
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="loginScreen" *ngIf="!loginSection">
+        <form [formGroup]="passwordForm">
+            <h5>Forgot My Password</h5>
+            <ngb-alert *ngIf="pwdResult" type="{{errType}}" (close)="pwdResult = null">{{ message }}</ngb-alert>
+            <div class="form-group">
+                <label for="email" style="color: #202323;">
+                    <b>Email</b>
+                </label>
+                <input class="form-control" type="email" formControlName="email" />
+            </div>
+            <hr>
+            <div class="form-group">
+                <a class="forgotPassword" (click)="backToLogin()">Back To Login Screen</a>
+                <button class="btn btn-login float-right" type="submit" value="Submit" (click)="emailResetPassword()">
+                    Reset My Password
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

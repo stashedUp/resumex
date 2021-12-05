@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="main d-flex justify-content-center">
+  <div class="col col-md-6">
+    <div class="left">
+      <h4 style="padding-bottom:10px"><i class="fa fa-address-card-o" aria-hidden="true"></i> Account Information</h4>
+      <table>
+        <tbody>
+          <tr>
+            <td>Name </td>
+            <td class="space_td">: </td>
+            <td class="space_td">
+              <span class="space_spn" *ngIf="!isEditName" from="name">{{name}}</span>
+              <button *ngIf="!isEditName" (click)="isEditName=true" type="button" class="btn btn-outline-update btn-sm">Update</button>
+              <input *ngIf="isEditName" [(ngModel)]="name" type="text" id="name">
+              <button *ngIf="isEditName" (click)="UpdateName()" type="button" class="btn btn-save btn-sm">Save</button>
+              <button *ngIf="isEditName" (click)="isEditName=false" type="button" class="btn btn-outline-cancel btn-sm">Cancel</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Email </td>
+            <td class="space_td">:</td>
+            <td class="space_td">{{account_email}}</td>
+          </tr>
+          <tr>
+            <td>Versions</td>
+            <td class="space_td">:</td>
+            <td class="space_td">{{ resume?.length }}</td>
+          </tr>
+          <tr>
+            <td>Last logged </td>
+            <td class="space_td">:</td>
+            <td class="space_td">{{last_login* 1000 |date}}</td>
+          </tr>
+          <tr>
+              <td>User ID </td>
+              <td class="space_td">:</td>
+              <td class="space_td">{{cust_id}}</td>
+          </tr>
+          <tr>
+            <td>Password </td>
+            <td class="space_td">:</td>
+            <td class="space_td">
+              <span class="space_spn" *ngIf="!isEditPass" from="name">***********</span>
+              <button *ngIf="!isEditPass" (click)="isEditPass=true" type="button" class="btn btn-outline-update btn-sm">Update</button>
+              <input *ngIf="isEditPass" [(ngModel)]="password" type="text" id="name">
+              <button *ngIf="isEditPass" (click)="UpdatePassword()" type="button" class="btn btn-save btn-sm">Save</button>
+              <button *ngIf="isEditPass" (click)="isEditPass=false" type="button" class="btn btn-outline-cancel btn-sm">Cancel</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

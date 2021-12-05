@@ -1,0 +1,48 @@
+<div>
+  <h5 class="card-title">Involvements
+    <button type="button" class="close float-right" aria-label="Close" (click)="removed.emit(index)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </h5>
+  <div>
+    <div [formGroup]="involvement">
+      <div class="form-group">
+        <label [attr.for]="'involvement'+index"><b>I was involved in</b></label>
+        <input type="text" class="form-control" [attr.id]="'involvement_name'+index" formControlName="involvement_name" (ngModelChange)="calculateLength($event);" placeholder="Ex- Founder's Club">
+      </div>
+      <div class="form-group">
+          <label [attr.for]="'involvement'+index"><b>Where I held the position or title of</b></label>
+          <input type="text" class="form-control" [attr.id]="'position_title'+index" formControlName="position_title" (ngModelChange)="calculateLength($event);" placeholder="Ex- Social Chair">
+        </div>
+      <div class="form-group">
+          <label [attr.for]="'degree'+index"><b>My involvement started</b></label>
+          <div class="form-inline">
+              <div class="col-6">
+                  <ng-select [options]="months" [multiple]="false" [placeholder]="monthPlaceHolder" formControlName="start_month" (ngModelChange)="calculateLength($event);">
+                  </ng-select>
+              </div>
+              <div class="col-6">
+                  <ng-select [options]="start_years" [multiple]="false" [placeholder]="yearPlaceHolder" formControlName="start_year" (ngModelChange)="calculateLength($event);" (selected)="onSingleSelected($event)">
+                  </ng-select>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label [attr.for]="'degree'+index"><b>My cool involvement ended in</b></label>
+          <div class="form-inline">
+              <div class="col-6">
+                  <ng-select [options]="months" [multiple]="false" [placeholder]="monthPlaceHolder" formControlName="end_month" (ngModelChange)="calculateLength($event);">
+                  </ng-select>
+              </div>
+              <div class="col-6">
+                  <ng-select [options]="end_years" [multiple]="false" [placeholder]="yearPlaceHolder" formControlName="end_year" (ngModelChange)="calculateLength($event);">
+                  </ng-select>
+              </div>
+          </div>
+      </div>
+      <app-activity-detail formArrayName="involvement_description" [involvement]="involvement.get('involvement_description')" (ngModelChange)="calculateLength($event);">
+      </app-activity-detail>
+    </div>
+  </div>
+</div>
+<hr/>
