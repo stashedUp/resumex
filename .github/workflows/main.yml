@@ -20,7 +20,7 @@ jobs:
     #   run: npm set progress=false && npm config set depth 0 && npm cache clean --force
     
     - name: npm ng-app
-      run: npm i -g angular@1.7.2 &&  $(npm bin)/ng -v
+      run: npm i -g angular@1.7.2 && ng -v
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
