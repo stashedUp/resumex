@@ -24,6 +24,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: npm push
+      run: git config --global user.email "nathan.d.armstrong@gmail.com";  git config --global user.name "stashedup"; git add .; git commit -m "test";git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        
+
 
 
     # - name: Deploy
