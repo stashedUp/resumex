@@ -9,6 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "ng build": "ng build --output-path docs; echo 'resumex.downloadpdf.org'> docs/CNAME",
     "deploy": "ng deploy --repo=https://github.com/stashedUp/resumex.git --cname=resumex.downloadpdf.org --name=stashedup --email=nathan.h.armstrong@gmail.com"
   },
   "private": true,
